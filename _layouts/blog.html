@@ -16,7 +16,7 @@ layout: default
 
         {% if page.featured_image %}
         <div class="post-featured-image">
-            <img src="{{ page.featured_image }}" alt="{{ page.title }}">
+            <img src="{{ page.featured_image | relative_url }}" alt="{{ page.title }}">
         </div>
         {% endif %}
 
@@ -29,7 +29,7 @@ layout: default
             <h4>Tags:</h4>
             <ul>
                 {% for tag in page.tags %}
-                <li><a href="/tags/{{ tag | slugify }}/">{{ tag }}</a></li>
+                <li><a href="{{ "/tags/" | relative_url }}{{ tag | slugify }}/">{{ tag }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -38,14 +38,14 @@ layout: default
 
     <div class="post-navigation">
         {% if page.previous %}
-        <a href="{{ page.previous.url }}" class="prev-post">
+        <a href="{{ page.previous.url | relative_url }}" class="prev-post">
             <span>Previous Post</span>
             <h3>{{ page.previous.title }}</h3>
         </a>
         {% endif %}
         
         {% if page.next %}
-        <a href="{{ page.next.url }}" class="next-post">
+        <a href="{{ page.next.url | relative_url }}" class="next-post">
             <span>Next Post</span>
             <h3>{{ page.next.title }}</h3>
         </a>
