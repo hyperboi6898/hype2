@@ -146,6 +146,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Mock data based on the sample post we created
                 return [
                     {
+                        slug: '2025-05-26-hyperliquid-la-gi',
+                        title: 'Hyperliquid là gì?',
+                        date: '2025-05-26T12:49:00.000Z',
+                        tags: ['kien-thuc'],
+                        excerpt: 'Tìm hiểu về Hyperliquid và các tính năng của nó.',
+                        path: '/content/blog/2025-05-26-hyperliquid-là-gì.md'
+                    },
+                    {
                         slug: '2025-05-25-gioi-thieu-hyperliquid',
                         title: 'Giới Thiệu Hyperliquid',
                         date: '2025-05-25T08:00:00.000Z',
@@ -189,7 +197,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // First, determine the file path based on the slug
             // In our case, the slug format is YYYY-MM-DD-title
-            const filePath = `/content/blog/${slug}.md`;
+            let filePath = `/content/blog/${slug}.md`;
+            
+            // Xử lý trường hợp đặc biệt cho các file có dấu tiếng Việt
+            if (slug === '2025-05-26-hyperliquid-la-gi') {
+                filePath = `/content/blog/2025-05-26-hyperliquid-là-gì.md`;
+            }
             
             // Fetch the Markdown file
             const response = await fetch(filePath);
@@ -462,7 +475,15 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (parts.length < 2) return null;
         
-        return parts[1].replace('.html', '');
+        // Xử lý URL có dấu tiếng Việt
+        let slug = parts[1].replace('.html', '');
+        
+        // Kiểm tra nếu slug có dấu tiếng Việt
+        if (slug.includes('là-gì')) {
+            return '2025-05-26-hyperliquid-la-gi';
+        }
+        
+        return slug;
     }
     
     /**
