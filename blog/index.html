@@ -1,18 +1,31 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Hyperliquid Vietnam</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        // Redirect to the main blog page
-        window.location.href = "../blog.html";
-    </script>
-</head>
-<body>
-    <p>Chuyển hướng đến trang blog...</p>
-</body>
-</html>
+---
+layout: default
+title: Blog
+---
+
+<div class="blog-list-container">
+    <h1 class="page-title">Blog</h1>
+    
+    <div class="blog-posts">
+        {% for post in site.blog %}
+        <article class="blog-post-card">
+            <a href="{{ post.url }}" class="post-link">
+                {% if post.featured_image %}
+                <div class="post-image">
+                    <img src="{{ post.featured_image }}" alt="{{ post.title }}">
+                </div>
+                {% endif %}
+                <div class="post-details">
+                    <h2 class="post-title">{{ post.title }}</h2>
+                    <div class="post-meta">
+                        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+                    </div>
+                    {% if post.description %}
+                    <p class="post-excerpt">{{ post.description }}</p>
+                    {% endif %}
+                </div>
+            </a>
+        </article>
+        {% endfor %}
+    </div>
+</div>

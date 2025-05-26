@@ -1,0 +1,21 @@
+collections:
+  blog:
+    output: true
+    permalink: /blog/:slug/
+    source: content/blog
+  news:
+    output: true
+    permalink: /news/:slug/
+    source: content/news
+
+defaults:
+  - scope:
+      path: "content/blog"
+      type: "blog"
+    values:
+      layout: post
+  - scope:
+      path: "content/news"
+      type: "news"
+    values:
+      layout: post
