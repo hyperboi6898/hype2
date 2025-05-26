@@ -11,9 +11,10 @@
     <script src="js/blog-renderer.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Lấy slug từ URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const slug = urlParams.get('slug') || '2025-05-26-hyperliquid-la-gi';
+            // Lấy slug từ window.BLOG_SLUG (inject bởi Cloudflare Function) hoặc từ URL
+            const slug = window.BLOG_SLUG || 
+                        (new URLSearchParams(window.location.search).get('slug')) || 
+                        '2025-05-26-hyperliquid-la-gi';
             
             // Tải bài viết dựa trên slug
             loadBlogPostBySlug(slug);
@@ -21,29 +22,63 @@
         
         async function loadBlogPostBySlug(slug) {
             try {
-                // Fetch bài viết từ thư mục content/blog
-                const response = await fetch(`/content/blog/${slug}.md`);
+                // Sử dụng GitHub API để lấy nội dung file Markdown
+                const apiUrl = `https://api.github.com/repos/hyperboi6898/hype2/contents/content/blog/${slug}.md`;
+                const response = await fetch(apiUrl, {
+                    headers: {
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Accept-Charset': 'utf-8'
+                    }
+                });
+                
                 if (!response.ok) {
-                    throw new Error('Không tìm thấy bài viết');
+                    // Nếu không tìm thấy trên GitHub, thử tải từ thư mục content/blog
+                    const localResponse = await fetch(`/content/blog/${slug}.md`);
+                    if (!localResponse.ok) {
+                        throw new Error('Không tìm thấy bài viết');
+                    }
+                    const markdown = await localResponse.text();
+                    return renderPost(markdown);
                 }
                 
-                const markdown = await response.text();
-                const post = parseMarkdownFrontMatter(markdown);
+                // Xử lý dữ liệu từ GitHub API
+                const data = await response.json();
+                if (!data.content) {
+                    throw new Error('Không có nội dung trong file');
+                }
                 
-                // Cập nhật nội dung trang
-                document.title = `${post.title} - Hyperliquid Vietnam`;
-                document.getElementById('post-title').textContent = post.title;
-                document.getElementById('post-date').textContent = post.formattedDate;
-                document.getElementById('post-content').innerHTML = post.content;
+                // Giải mã nội dung base64 từ GitHub
+                const binaryString = atob(data.content.replace(/\n/g, ''));
+                const bytes = new Uint8Array(binaryString.length);
+                for (let i = 0; i < binaryString.length; i++) {
+                    bytes[i] = binaryString.charCodeAt(i);
+                }
+                const markdown = new TextDecoder().decode(bytes);
                 
-                // Hiển thị trang
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('post-container').style.display = 'block';
+                // Render bài viết
+                renderPost(markdown);
+                
             } catch (error) {
                 console.error('Lỗi khi tải bài viết:', error);
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('error').style.display = 'block';
+                document.getElementById('error-message').textContent = error.message;
             }
+        }
+        
+        function renderPost(markdown) {
+            // Parse Markdown và hiển thị nội dung
+            const post = parseMarkdownFrontMatter(markdown);
+            
+            // Cập nhật nội dung trang
+            document.title = `${post.title} - Hyperliquid Vietnam`;
+            document.getElementById('post-title').textContent = post.title;
+            document.getElementById('post-date').textContent = post.formattedDate;
+            document.getElementById('post-content').innerHTML = post.content;
+            
+            // Hiển thị trang
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('post-container').style.display = 'block';
         }
         
         function parseMarkdownFrontMatter(markdown) {
@@ -192,6 +227,7 @@
             <div id="error" class="error" style="display: none;">
                 <h2>Không tìm thấy bài viết</h2>
                 <p>Bài viết bạn đang tìm kiếm không tồn tại hoặc đã bị xóa.</p>
+                <p id="error-message"></p>
                 <a href="blog.html" class="btn btn-primary">Quay lại trang Blog</a>
             </div>
             
