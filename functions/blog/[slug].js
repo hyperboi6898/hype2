@@ -2,6 +2,10 @@ export async function onRequest(context) {
   const { request } = context;
   const url = new URL(request.url);
   let slug = url.pathname.split('/').pop();
+  // Safety check: if slug contains a dot and is not .html, pass through to assets
+  if (slug.includes('.') && !slug.endsWith('.html')) {
+    return context.env.ASSETS.fetch(request);
+  }
   // Remove .html extension if present
   if (slug && slug.endsWith('.html')) {
     slug = slug.replace('.html', '');
