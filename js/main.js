@@ -69,29 +69,45 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Add animation classes to CSS
-    const styleSheet = document.styleSheets[0];
-    const animationRules = `
-        .feature-card, .blog-card, .about-content > div, .hero-content, .hero-image {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        .feature-card.animate, .blog-card.animate, .about-content > div.animate, .hero-content.animate, .hero-image.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .feature-card:nth-child(2), .blog-card:nth-child(2), .about-content > div:nth-child(2) {
-            transition-delay: 0.2s;
-        }
-        .feature-card:nth-child(3), .blog-card:nth-child(3) {
-            transition-delay: 0.4s;
-        }
-    `;
-    
-    if (styleSheet.insertRule) {
-        styleSheet.insertRule(animationRules, styleSheet.cssRules.length);
-    } else if (styleSheet.addRule) {
-        styleSheet.addRule(animationRules, -1);
+    try {
+        // Wait for stylesheets to load
+        setTimeout(() => {
+            // Find a valid stylesheet
+            let styleSheet = null;
+            for (let i = 0; i < document.styleSheets.length; i++) {
+                try {
+                    const ss = document.styleSheets[i];
+                    // Test if we can access rules
+                    const rules = ss.cssRules || ss.rules;
+                    if (rules) {
+                        styleSheet = ss;
+                        break;
+                    }
+                } catch (e) {
+                    // Skip stylesheets we can't access (like cross-origin ones)
+                    continue;
+                }
+            }
+            
+            // If no stylesheet found, create one
+            if (!styleSheet) {
+                const style = document.createElement('style');
+                document.head.appendChild(style);
+                styleSheet = style.sheet;
+            }
+            
+            // Add each rule individually
+            try {
+                styleSheet.insertRule('.feature-card, .blog-card, .about-content > div, .hero-content, .hero-image { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }', styleSheet.cssRules.length);
+                styleSheet.insertRule('.feature-card.animate, .blog-card.animate, .about-content > div.animate, .hero-content.animate, .hero-image.animate { opacity: 1; transform: translateY(0); }', styleSheet.cssRules.length);
+                styleSheet.insertRule('.feature-card:nth-child(2), .blog-card:nth-child(2), .about-content > div:nth-child(2) { transition-delay: 0.2s; }', styleSheet.cssRules.length);
+                styleSheet.insertRule('.feature-card:nth-child(3), .blog-card:nth-child(3) { transition-delay: 0.4s; }', styleSheet.cssRules.length);
+            } catch (e) {
+                console.log('Could not insert animation rules: ' + e.message);
+            }
+        }, 500); // Wait 500ms for stylesheets to load
+    } catch (e) {
+        console.log('Animation setup error: ' + e.message);
     }
     
     // Check elements on load and scroll
