@@ -18,7 +18,7 @@ collections:
   - name: "blog"
     label: "Blog Posts"
     label_singular: "Blog Post"
-    folder: "content/blog"
+    folder: "content/_blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Generates slugs like 2023-10-26-my-post-title
     fields:
@@ -31,7 +31,7 @@ collections:
   - name: "news"
     label: "News Articles"
     label_singular: "News Article"
-    folder: "content/news" # This folder needs to be created
+    folder: "content/_news" # Updated with underscore prefix
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
