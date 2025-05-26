@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Blog slider functionality
+    initBlogSlider();
+    
     // Header scroll effect
     const header = document.querySelector('header');
     
@@ -97,4 +100,140 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize animations
     checkIfInView();
+    
+    // Blog slider functionality
+    function initBlogSlider() {
+        const sliderContainer = document.querySelector('.blog-slider-container');
+        const prevBtn = document.querySelector('.prev-slide');
+        const nextBtn = document.querySelector('.next-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const blogPosts = document.querySelectorAll('.blog-slider .blog-post');
+        
+        if (!sliderContainer || !blogPosts.length) return;
+        
+        let currentSlide = 0;
+        const slideWidth = blogPosts[0].offsetWidth + 30; // Width + gap
+        const slidesPerView = getVisibleSlides();
+        const maxSlides = Math.ceil(blogPosts.length / slidesPerView);
+        
+        // Set initial width for container
+        updateSliderLayout();
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            updateSliderLayout();
+            goToSlide(currentSlide);
+        });
+        
+        // Previous slide button
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function() {
+                goToSlide(currentSlide - 1);
+            });
+        }
+        
+        // Next slide button
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function() {
+                goToSlide(currentSlide + 1);
+            });
+        }
+        
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', function() {
+                goToSlide(index);
+            });
+        });
+        
+        // Auto slide every 5 seconds
+        let autoSlideInterval = setInterval(function() {
+            goToSlide(currentSlide + 1);
+        }, 5000);
+        
+        // Pause auto slide on hover
+        sliderContainer.addEventListener('mouseenter', function() {
+            clearInterval(autoSlideInterval);
+        });
+        
+        sliderContainer.addEventListener('mouseleave', function() {
+            autoSlideInterval = setInterval(function() {
+                goToSlide(currentSlide + 1);
+            }, 5000);
+        });
+        
+        // Go to specific slide
+        function goToSlide(slideIndex) {
+            // Handle circular navigation
+            if (slideIndex < 0) {
+                slideIndex = maxSlides - 1;
+            } else if (slideIndex >= maxSlides) {
+                slideIndex = 0;
+            }
+            
+            currentSlide = slideIndex;
+            
+            // Calculate translation distance
+            const translateX = -currentSlide * slidesPerView * slideWidth;
+            sliderContainer.style.transform = `translateX(${translateX}px)`;
+            
+            // Update active dot
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        // Get number of visible slides based on viewport width
+        function getVisibleSlides() {
+            const viewportWidth = window.innerWidth;
+            if (viewportWidth < 768) {
+                return 1;
+            } else if (viewportWidth < 992) {
+                return 2;
+            } else {
+                return 3;
+            }
+        }
+        
+        // Update slider layout based on viewport
+        function updateSliderLayout() {
+            const visibleSlides = getVisibleSlides();
+            
+            // Set width for each blog post
+            const containerWidth = sliderContainer.parentElement.offsetWidth;
+            const postWidth = (containerWidth / visibleSlides) - 30;
+            
+            blogPosts.forEach(post => {
+                post.style.width = `${postWidth}px`;
+                post.style.flexShrink = '0';
+            });
+        }
+    }
+    
+    // Blog filter functionality for blog.html page
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const blogPosts = document.querySelectorAll('.blog-page-grid .blog-post');
+    
+    if (filterBtns.length && blogPosts.length) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // Show/hide blog posts based on filter
+                blogPosts.forEach(post => {
+                    if (filter === 'all' || post.getAttribute('data-category') === filter) {
+                        post.style.display = 'block';
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
 });
