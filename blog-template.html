@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}} - Hyperliquid Vietnam</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -13,15 +13,15 @@
     <header>
         <div class="container">
             <div class="logo">
-                <h1><a href="/index.html"><span class="hyper">Hyper</span><span class="liquid">liquid</span> <span class="vn">Vietnam</span></a></h1>
+                <h1><a href="../index.html"><span class="hyper">Hyper</span><span class="liquid">liquid</span> <span class="vn">Vietnam</span></a></h1>
             </div>
             <nav>
                 <ul>
-                    <li><a href="/index.html">Trang chủ</a></li>
-                    <li><a href="/index.html#about">Giới thiệu</a></li>
-                    <li><a href="/index.html#features">Tính năng</a></li>
-                    <li><a href="/blog.html" class="active">Blog</a></li>
-                    <li><a href="/index.html#contact">Liên hệ</a></li>
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="../index.html#about">Giới thiệu</a></li>
+                    <li><a href="../index.html#features">Tính năng</a></li>
+                    <li><a href="../blog.html" class="active">Blog</a></li>
+                    <li><a href="../index.html#contact">Liên hệ</a></li>
                 </ul>
             </nav>
             <div class="mobile-menu">
@@ -46,7 +46,7 @@
                 </div>
                 
                 <div class="blog-featured-image">
-                    <img src="{{featured_image}}" alt="{{title}}">
+                    <img src="../images/blog/blog-featured.png" alt="Blog Post Image">
                 </div>
                 
                 <div class="blog-content">
@@ -54,9 +54,8 @@
                 </div>
                 
                 <div class="blog-tags">
-                    {{#each tags}}
-                    <span class="tag">#{{this}}</span>
-                    {{/each}}
+                    <span class="tag">#kien-thuc</span>
+                    <span class="tag">#huong-dan</span>
                 </div>
                 
                 <div class="blog-share">
@@ -68,20 +67,30 @@
             </div>
             
             <div class="blog-navigation">
-                <a href="#" class="prev-post">
+                <a href="../blog.html" class="prev-post">
                     <i class="fas fa-arrow-left"></i>
-                    <span>Bài trước</span>
-                </a>
-                <a href="#" class="next-post">
-                    <span>Bài tiếp theo</span>
-                    <i class="fas fa-arrow-right"></i>
+                    <span>Quay lại danh sách bài viết</span>
                 </a>
             </div>
             
             <div class="related-posts">
                 <h3>Bài Viết Liên Quan</h3>
                 <div class="related-posts-grid">
-                    <!-- Related posts will be dynamically inserted here -->
+                    <div class="related-post">
+                        <img src="../images/blog/blog-1.png" alt="Related Post">
+                        <h4>Giới Thiệu Hyperliquid</h4>
+                        <a href="2025-05-25-gioi-thieu-hyperliquid.html">Đọc tiếp</a>
+                    </div>
+                    <div class="related-post">
+                        <img src="../images/blog/blog-2.png" alt="Related Post">
+                        <h4>Nạp Tiền Hyperliquid</h4>
+                        <a href="#">Đọc tiếp</a>
+                    </div>
+                    <div class="related-post">
+                        <img src="../images/blog/blog-3.png" alt="Related Post">
+                        <h4>Cơ Chế Thanh Lý</h4>
+                        <a href="#">Đọc tiếp</a>
+                    </div>
                 </div>
             </div>
         </div>
