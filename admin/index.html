@@ -4,9 +4,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hyperliquid Vietnam - Content Manager</title>
+  <script>
+    // Custom configuration for Sveltia CMS
+    window.CMS_MANUAL_INIT = true;
+  </script>
   <script src="https://unpkg.com/@sveltia/cms@0.77.2/dist/sveltia-cms.js"></script>
 </head>
 <body>
+  <script>
+    // Initialize CMS with custom configuration
+    window.addEventListener('load', function() {
+      window.CMS.init({
+        config: {
+          backend: {
+            name: 'github',
+            repo: 'hyperboi6898/hype2',
+            branch: 'master',
+            base_url: 'https://sveltia-cms-auth2.hyperboi6898.workers.dev',
+            auth_endpoint: 'oauth/authorize'
+          }
+        }
+      });
+    });
+  </script>
   <script>
     console.log("Sveltia CMS initialized for Hyperliquid Vietnam");
   </script>
