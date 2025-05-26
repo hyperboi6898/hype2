@@ -79,7 +79,7 @@
     <script>
         async function loadBlogPostBySlug(slug) {
             try {
-                const response = await fetch(`https://hyperliquid-vietnam.github.io/content/blog/${slug}.md`);
+                const response = await fetch(`https://raw.githubusercontent.com/hyperboi6898/hype2/master/content/blog/${slug}.md`);
                 if (!response.ok) throw new Error('Bài viết không tồn tại');
                 const markdown = await response.text();
                 const post = parseMarkdownFrontMatter(markdown);
