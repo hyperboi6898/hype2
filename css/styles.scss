@@ -29,6 +29,14 @@
     box-sizing: border-box;
 }
 
+/* Container for centering content */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 html {
     scroll-behavior: smooth;
 }

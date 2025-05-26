@@ -3,7 +3,17 @@
 /* Blog specific styles */
 .blog-posts {
     padding: 60px 0;
-    background-color: #f9f9f9;
+    background-color: var(--surface, #0f2126);
+}
+
+.blog-list-container {
+    padding: 40px 0;
+}
+
+.page-title {
+    color: var(--text, #e5f6f4);
+    margin-bottom: 30px;
+    text-align: center;
 }
 
 .blog-grid {
@@ -13,12 +23,89 @@
     margin-top: 30px;
 }
 
-.blog-post {
-    background: white;
-    border-radius: 10px;
+.blog-post-card {
+    background: var(--card, #14272b);
+    border-radius: var(--border-radius, 8px);
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    box-shadow: var(--box-shadow, 0 5px 15px rgba(0, 0, 0, 0.3));
+    transition: var(--transition, all 0.3s ease);
+    margin-bottom: 30px;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.post-link {
+    display: block;
+    color: var(--text, #e5f6f4);
+    text-decoration: none;
+    padding: 20px;
+}
+
+.post-image {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 15px;
+    border-radius: var(--border-radius, 8px);
+    overflow: hidden;
+}
+
+.post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-color, #00e8bf);
+}
+
+.post-meta {
+    color: var(--muted, #6d7575);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.post-excerpt {
+    color: var(--text-light, #6d7575);
+    line-height: 1.6;
+}
+
+/* Individual blog post page styling */
+.blog-post-container {
+    background: var(--card, #14272b);
+    border-radius: var(--border-radius, 8px);
+    padding: 30px;
+    margin: 40px 0;
+    box-shadow: var(--box-shadow, 0 5px 15px rgba(0, 0, 0, 0.3));
+}
+
+.blog-post {
+    color: var(--text, #e5f6f4);
+}
+
+.blog-post .post-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.blog-post .post-meta {
+    margin-bottom: 30px;
+}
+
+.blog-post .post-content {
+    line-height: 1.8;
+}
+
+.blog-post .post-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: var(--border-radius, 8px);
 }
 
 .blog-post:hover {
