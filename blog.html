@@ -51,8 +51,8 @@
                 <button class="filter-btn" data-filter="analysis">Phân tích</button>
             </div>
             
-            <div class="blog-grid blog-page-grid">
-                <!-- Featured Post -->
+            <div class="blog-grid blog-page-grid" id="blog-posts-container">
+                <!-- Blog posts will be dynamically loaded here by blog-renderer.js -->
                 <div class="blog-post featured-post">
                     <div class="post-img">
                         <img src="images/blog/blog-featured.png" alt="Featured Blog Post">
@@ -66,114 +66,25 @@
                             <span class="category">Kiến thức</span>
                         </div>
                         <h2>Hyperliquid là gì?</h2>
-                        <p>Tìm hiểu về Hyperliquid và các tính năng của nó. Khám phá cách thức hoạt động và lợi ích của nền tảng giao dịch này.</p>
+                        <p>Tìm hiểu về Hyperliquid và các tính năng của nó.</p>
                         <a href="blog/2025-05-26-hyperliquid-la-gi.html" class="read-more success-text">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 
-                <!-- Regular Posts -->
-                <div class="blog-post" data-category="guides">
-                    <div class="blog-image">
-                        <img src="images/blog-featured.png" alt="Giới thiệu Hyperliquid">
+                <div class="blog-post">
+                    <div class="post-img">
+                        <img src="images/blog/blog-1.png" alt="Blog Post">
+                        <div class="post-category">
+                            <span>Hướng dẫn</span>
+                        </div>
                     </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">25/05/2025</span>
-                            <span class="blog-category">Hướng dẫn</span>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="date">25/05/2025</span>
+                            <span class="category">Hướng dẫn</span>
                         </div>
                         <h2>Giới Thiệu Hyperliquid</h2>
-                        <p>Tìm hiểu về sàn giao dịch Hyperliquid, các tính năng nổi bật và cách thức hoạt động của nền tảng. Hyperliquid là một sàn giao dịch hợp đồng vĩnh cửu phi tập trung (Perpetual Futures DEX) hiệu suất cao, được xây dựng trên Layer 1 blockchain riêng biệt.</p>
-                        <a href="blog/2025-05-25-gioi-thieu-hyperliquid.html" class="read-more success-text">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Regular Posts -->
-                <div class="blog-post" data-category="guides">
-                    <div class="blog-image">
-                        <img src="images/blog-1.png" alt="Nạp Tiền Hyperliquid">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">25/05/2025</span>
-                            <span class="blog-category">Hướng dẫn</span>
-                        </div>
-                        <h3>Nạp Tiền Hyperliquid</h3>
-                        <p>Hướng dẫn chi tiết cách nạp tiền vào Hyperliquid từ nhiều blockchain khác nhau và các lưu ý quan trọng.</p>
-                        <a href="blog/2025-05-25-gioi-thieu-hyperliquid.html" class="read-more success-text">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="blog-post" data-category="guides">
-                    <div class="blog-image">
-                        <img src="images/blog-2.png" alt="Cơ Chế Thanh Lý">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">25/05/2025</span>
-                            <span class="blog-category">Hướng dẫn</span>
-                        </div>
-                        <h3>Cơ Chế Thanh Lý</h3>
-                        <p>Tìm hiểu cơ chế thanh lý vị thế trên Hyperliquid và cách quản lý rủi ro hiệu quả khi giao dịch.</p>
-                        <a href="blog/2025-05-25-gioi-thieu-hyperliquid.html" class="read-more success-text">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="blog-post" data-category="news">
-                    <div class="blog-image">
-                        <img src="images/blog-3.png" alt="Cập Nhật Hyperliquid V2">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">24/05/2025</span>
-                            <span class="blog-category">Tin tức</span>
-                        </div>
-                        <h3>Cập Nhật Hyperliquid V2</h3>
-                        <p>Khám phá những tính năng mới nhất trong phiên bản cập nhật Hyperliquid V2 và cách chúng cải thiện trải nghiệm giao dịch.</p>
-                        <a href="blog/2025-05-25-gioi-thieu-hyperliquid.html" class="read-more success-text">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="blog-post" data-category="analysis">
-                    <div class="blog-image">
-                        <img src="images/blog-4.png" alt="Phân Tích Thị Trường">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">23/05/2025</span>
-                            <span class="blog-category">Phân tích</span>
-                        </div>
-                        <h3>Phân Tích Thị Trường</h3>
-                        <p>Đánh giá tình hình thị trường crypto hiện tại và cơ hội giao dịch trên Hyperliquid trong quý 2 năm 2025.</p>
-                        <a href="blog/2025-05-25-gioi-thieu-hyperliquid.html" class="read-more success-text">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="blog-post" data-category="guides">
-                    <div class="blog-image">
-                        <img src="images/blog-5.png" alt="Chiến Lược Giao Dịch">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">22/05/2025</span>
-                            <span class="blog-category">Hướng dẫn</span>
-                        </div>
-                        <h3>Chiến Lược Giao Dịch</h3>
-                        <p>Các chiến lược giao dịch hiệu quả trên Hyperliquid dành cho người mới bắt đầu và trader có kinh nghiệm.</p>
-                        <a href="blog/2025-05-25-gioi-thieu-hyperliquid.html" class="read-more success-text">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="blog-post" data-category="news">
-                    <div class="blog-image">
-                        <img src="images/blog-6.png" alt="Sự Kiện Hyperliquid">
-                    </div>
-                    <div class="blog-content">
-                        <div class="blog-meta">
-                            <span class="blog-date">21/05/2025</span>
-                            <span class="blog-category">Tin tức</span>
-                        </div>
-                        <h3>Sự Kiện Hyperliquid</h3>
-                        <p>Thông tin về các sự kiện sắp tới của Hyperliquid và cơ hội tham gia cùng cộng đồng.</p>
+                        <p>Tìm hiểu về sàn giao dịch Hyperliquid, các tính năng nổi bật và cách thức hoạt động của nền tảng.</p>
                         <a href="blog/2025-05-25-gioi-thieu-hyperliquid.html" class="read-more success-text">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>

@@ -130,57 +130,26 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     async function fetchBlogPosts() {
         try {
-            // In a real implementation, this would fetch from your GitHub repo
-            // For now, we'll use a mock implementation that fetches from the content directory
-            
-            // This is a simplified example - in a real app, you'd need to handle GitHub API authentication
-            // and pagination for larger repositories
-            
-            // For demo purposes, we'll use a local file that lists the blog posts
-            const response = await fetch('/content/blog-index.json');
-            
-            // If the file doesn't exist yet, we'll create a mock response
-            if (!response.ok) {
-                console.log('Blog index not found, using mock data');
-                
-                // Mock data based on the sample post we created
-                return [
-                    {
-                        slug: '2025-05-26-hyperliquid-la-gi',
-                        title: 'Hyperliquid là gì?',
-                        date: '2025-05-26T12:49:00.000Z',
-                        tags: ['kien-thuc'],
-                        excerpt: 'Tìm hiểu về Hyperliquid và các tính năng của nó.',
-                        path: '/content/blog/2025-05-26-hyperliquid-là-gì.md'
-                    },
-                    {
-                        slug: '2025-05-25-gioi-thieu-hyperliquid',
-                        title: 'Giới Thiệu Hyperliquid',
-                        date: '2025-05-25T08:00:00.000Z',
-                        tags: ['kien-thuc', 'huong-dan'],
-                        excerpt: 'Tìm hiểu về sàn giao dịch Hyperliquid, các tính năng nổi bật và cách thức hoạt động của nền tảng.',
-                        path: '/content/blog/2025-05-25-gioi-thieu-hyperliquid.md'
-                    },
-                    {
-                        slug: '2025-05-25-nap-tien-hyperliquid',
-                        title: 'Nạp Tiền Hyperliquid',
-                        date: '2025-05-25T10:00:00.000Z',
-                        tags: ['huong-dan'],
-                        excerpt: 'Hướng dẫn chi tiết cách nạp tiền vào Hyperliquid từ nhiều blockchain khác nhau và các lưu ý quan trọng.',
-                        path: '/content/blog/2025-05-25-nap-tien-hyperliquid.md'
-                    },
-                    {
-                        slug: '2025-05-25-co-che-thanh-ly',
-                        title: 'Cơ Chế Thanh Lý',
-                        date: '2025-05-25T12:00:00.000Z',
-                        tags: ['kien-thuc'],
-                        excerpt: 'Tìm hiểu cơ chế thanh lý vị thế trên Hyperliquid và cách quản lý rủi ro hiệu quả khi giao dịch.',
-                        path: '/content/blog/2025-05-25-co-che-thanh-ly.md'
-                    }
-                ];
-            }
-            
-            return await response.json();
+            // Chỉ tải các bài viết thực tế từ thư mục content/blog
+            // Hiện tại chỉ có 2 bài viết thực tế
+            return [
+                {
+                    slug: '2025-05-26-hyperliquid-la-gi',
+                    title: 'Hyperliquid là gì?',
+                    date: '2025-05-26T12:49:00.000Z',
+                    tags: ['kien-thuc'],
+                    excerpt: 'Tìm hiểu về Hyperliquid và các tính năng của nó.',
+                    path: '/content/blog/2025-05-26-hyperliquid-là-gì.md'
+                },
+                {
+                    slug: '2025-05-25-gioi-thieu-hyperliquid',
+                    title: 'Giới Thiệu Hyperliquid',
+                    date: '2025-05-25T08:00:00.000Z',
+                    tags: ['kien-thuc', 'huong-dan'],
+                    excerpt: 'Tìm hiểu về sàn giao dịch Hyperliquid, các tính năng nổi bật và cách thức hoạt động của nền tảng.',
+                    path: '/content/blog/2025-05-25-gioi-thieu-hyperliquid.md'
+                }
+            ];
         } catch (error) {
             console.error('Error fetching blog posts:', error);
             return [];
