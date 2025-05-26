@@ -11,7 +11,7 @@ backend:
     deleteMedia: 'Delete "{{path}}"'
     openAuthoring: '{{message}}'
 
-media_folder: "public/uploads" # Where to store uploaded files
+media_folder: "uploads" # Where to store uploaded files
 public_folder: "/uploads" # The src attribute for uploaded files
 
 collections:
