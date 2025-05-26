@@ -1,9 +1,8 @@
 backend:
   name: github
-  repo: hyperboi6898/hype2 # MAKE SURE THIS IS YOUR REPO
-  branch: main # Or your default branch
-  base_url: https://sveltia-cms-auth.hyperboi6898.workers.dev # Your OAuth handler
-  auth_endpoint: /auth/github
+  repo: hyperboi6898/hype2 # Your GitHub repository
+  branch: master # Your default branch
+  auth_type: implicit # Use implicit OAuth flow instead of the worker
   commit_messages:
     create: 'Create {{collection}} "{{slug}}"'
     update: 'Update {{collection}} "{{slug}}"'
