@@ -975,6 +975,32 @@ nav ul li a.active::after {
     width: 100%;
 }
 
+/* ----------  Logo / Site-title  ---------- */
+.site-title {
+    font-family: 'Inter', sans-serif;   /* same as body text */
+    font-weight: 700;
+    font-size: 1.25rem;                 /* 20 px default */
+    letter-spacing: 0.02em;
+    color: var(--primary-color, #00e8bf);
+    text-decoration: none;
+    white-space: nowrap;                /* keeps "Hyperliquid Vietnam" on one line */
+}
+
+/* Ensure header uses flex so title & nav are aligned */
+header .container, header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav ul {
+    display: flex;
+    gap: 2.5rem;        /* space between "Home", "Blog"… */
+    margin: 0;
+}
+
+/* Optional darker hover */
+.site-title:hover { opacity: .85; }
+
 /* Responsive Design */
 @media screen and (max-width: 992px) {
     .hero-content h1 {
@@ -1029,6 +1055,11 @@ nav ul li a.active::after {
     .hero-buttons .btn {
         width: 100%;
     }
+}
+
+@media screen and (max-width: 640px) {
+    .site-title { font-size: 1.1rem; }
+    header nav ul { gap: 1.5rem; }
 }
 
 @media screen and (max-width: 576px) {
