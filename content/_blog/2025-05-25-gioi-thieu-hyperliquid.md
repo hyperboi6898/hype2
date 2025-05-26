@@ -43,7 +43,7 @@ Hệ thống oracle của Hyperliquid cũng được thiết kế để đảm b
 
 Để bắt đầu giao dịch trên Hyperliquid, bạn cần thực hiện một số bước đơn giản:
 
-1. Kết nối ví (Metamask, WalletConnect, v.v.)
+1. Truy cập [Hyperliquid](https://app.hyperliquid.xyz/join/VN84) và kết nối ví (Metamask, WalletConnect, v.v.)
 2. Nạp tiền vào Hyperliquid (thông qua cầu nối từ Ethereum hoặc các blockchain khác)
 3. Chọn cặp giao dịch và bắt đầu giao dịch
 
@@ -52,5 +52,7 @@ Chúng tôi sẽ cung cấp hướng dẫn chi tiết về từng bước trong 
 ## Kết Luận
 
 Hyperliquid đại diện cho bước tiến quan trọng trong lĩnh vực giao dịch phái sinh phi tập trung. Bằng cách kết hợp tốc độ và hiệu suất của các sàn tập trung với tính minh bạch và an toàn của DeFi, Hyperliquid đang mở ra một kỷ nguyên mới cho giao dịch crypto.
+
+**[Bắt đầu giao dịch trên Hyperliquid ngay hôm nay!](https://app.hyperliquid.xyz/join/VN84)**
 
 Hãy theo dõi blog của chúng tôi để cập nhật thêm thông tin và hướng dẫn về Hyperliquid!
