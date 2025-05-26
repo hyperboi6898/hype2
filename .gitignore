@@ -52,3 +52,6 @@ _site/
 .jekyll-metadata
 .bundle/
 vendor/
+
+# Backup files
+*.bak
