@@ -239,36 +239,105 @@ document.addEventListener('DOMContentLoaded', function() {
         const lines = frontMatter.split('\n');
         
         lines.forEach(line => {
-            const parts = line.split(':');
-            if (parts.length >= 2) {
-                const key = parts[0].trim();
-                const value = parts.slice(1).join(':').trim();
+            const colonIndex = line.indexOf(':');
+            if (colonIndex > 0) {
+                const key = line.substring(0, colonIndex).trim();
+                const value = line.substring(colonIndex + 1).trim().replace(/^["']|["']$/g, '');
                 
                 // Handle special cases
                 if (key === 'tags') {
                     // Parse YAML-style list
-                    const tagsMatch = value.match(/\[([^\]]*)\]|\n\s*-\s*(.+)/g);
-                    if (tagsMatch) {
-                        post.tags = tagsMatch[0]
+                    if (value.includes('[') && value.includes(']')) {
+                        post.tags = value
                             .replace('[', '')
                             .replace(']', '')
                             .split(',')
                             .map(tag => tag.trim().replace(/'/g, '').replace(/"/g, ''));
+                    } else if (value.startsWith('-')) {
+                        post.tags = value.split('-').map(tag => tag.trim()).filter(tag => tag);
                     } else {
-                        post.tags = [];
+                        post.tags = value.split(',').map(tag => tag.trim()).filter(tag => tag);
                     }
                 } else {
-                    post[key] = value.replace(/^['"]|['"]$/g, ''); // Remove quotes if present
+                    post[key] = value;
                 }
             }
         });
         
-        // Add the content and convert Markdown to HTML
-        post.content = marked.parse(content);
+        // Add the raw content for custom rendering
+        post.rawContent = content;
+        
+        // Convert Markdown to HTML using custom renderer
+        post.content = mdToHtml(content);
         post.excerpt = extractExcerpt(content);
         post.formattedDate = formatDate(post.date);
         
         return post;
+    }
+    
+    /**
+     * Custom Markdown to HTML converter
+     */
+    function mdToHtml(md) {
+        if (!md || md.trim() === '') return '';
+        
+        let html = md.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+        
+        // Headers
+        html = html
+            .replace(/^###### (.*)$/gim, '<h6>$1</h6>')
+            .replace(/^##### (.*)$/gim, '<h5>$1</h5>')
+            .replace(/^#### (.*)$/gim, '<h4>$1</h4>')
+            .replace(/^### (.*)$/gim, '<h3>$1</h3>')
+            .replace(/^## (.*)$/gim, '<h2>$1</h2>')
+            .replace(/^# (.*)$/gim, '<h1>$1</h1>');
+        
+        // Bold and Italic
+        html = html
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.*?)\*/g, '<em>$1</em>');
+        
+        // Links
+        html = html.replace(/\[([^\]]+)]\((https?:\/\/[^\s)]+)\)/gim, 
+            '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+        
+        // Images
+        html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, src) => {
+            // Resolve image paths
+            let imageSrc = src;
+            if (src.startsWith('/')) {
+                imageSrc = src.substring(1); // Remove leading slash
+            }
+            return `<img src="${imageSrc}" alt="${alt || 'blog image'}" class="post-image">`;
+        });
+        
+        // Lists
+        html = html.replace(/^\s*[-*+]\s+(.+)$/gim, '<li>$1</li>');
+        html = html.replace(/(<li>.*?<\/li>\s*)+/g, (match) => `<ul>\n${match.trim()}\n</ul>\n`);
+        
+        // Blockquotes
+        html = html.replace(/^>\s*(.+)$/gm, '<blockquote>$1</blockquote>');
+        
+        // Code blocks
+        html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+        
+        // Inline code
+        html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+        
+        // Paragraphs
+        const paragraphs = html.split(/\n\s*\n/);
+        html = paragraphs.map(para => {
+            para = para.trim();
+            if (!para) return '';
+            if (para.match(/^<(h[1-6]|ul|ol|li|img|blockquote|pre)/i)) return para;
+            para = para.replace(/\n/g, '<br>'); 
+            return `<p>${para}</p>`;
+        }).filter(para => para).join('\n');
+        
+        // Clean up any empty tags
+        html = html.replace(/<p><\/p>|<p>\s*<\/p>|<\/ul>\s*<ul>|<\/ol>\s*<ol>/g, '');
+        
+        return html;
     }
     
     /**
