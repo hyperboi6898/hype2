@@ -2,24 +2,24 @@ title: Hyperliquid Việt Nam
 source: .
 destination: _site
 
+collections_dir: content
+
 collections:
   blog:
     output: true
-    source: content/blog
     permalink: /blog/:slug/
   news:
     output: true
-    source: content/news
     permalink: /news/:slug/
 
 defaults:
   - scope:
-      path: "content/blog"
+      path: "blog"
       type: "blog"
     values:
       layout: blog
   - scope:
-      path: "content/news"
+      path: "news"
       type: "news"
     values:
       layout: blog
