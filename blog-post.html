@@ -3,13 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chuyển hướng đến bài viết - Hyperliquid Vietnam</title>
+    <title>Bài viết - Hyperliquid Vietnam</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.0.0/marked.min.js"></script>
+    <script src="js/blog-renderer.js"></script>
     <script>
-        // Redirect to the dynamic blog post URL - bài viết mới nhất
-        window.location.href = "blog/2025-05-26-hyperliquid-la-gi.html";
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lấy slug từ URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get('slug') || '2025-05-26-hyperliquid-la-gi';
+            
+            // Tải bài viết dựa trên slug
+            loadBlogPostBySlug(slug);
+        });
+        
+        async function loadBlogPostBySlug(slug) {
+            try {
+                // Fetch bài viết từ thư mục content/blog
+                const response = await fetch(`/content/blog/${slug}.md`);
+                if (!response.ok) {
+                    throw new Error('Không tìm thấy bài viết');
+                }
+                
+                const markdown = await response.text();
+                const post = parseMarkdownFrontMatter(markdown);
+                
+                // Cập nhật nội dung trang
+                document.title = `${post.title} - Hyperliquid Vietnam`;
+                document.getElementById('post-title').textContent = post.title;
+                document.getElementById('post-date').textContent = post.formattedDate;
+                document.getElementById('post-content').innerHTML = post.content;
+                
+                // Hiển thị trang
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('post-container').style.display = 'block';
+            } catch (error) {
+                console.error('Lỗi khi tải bài viết:', error);
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').style.display = 'block';
+            }
+        }
+        
+        function parseMarkdownFrontMatter(markdown) {
+            // Hàm này đã được định nghĩa trong blog-renderer.js
+            // Chúng ta sẽ sử dụng lại nó ở đây
+            const frontMatterRegex = /^---[\r\n]([\s\S]*?)[\r\n]---/;
+            const match = markdown.match(frontMatterRegex);
+            
+            if (!match) {
+                return { title: 'Bài viết không có tiêu đề', content: markdown };
+            }
+            
+            const frontMatter = match[1];
+            const content = markdown.replace(frontMatterRegex, '').trim();
+            
+            const post = {};
+            const lines = frontMatter.split('\n');
+            
+            lines.forEach(line => {
+                const colonIndex = line.indexOf(':');
+                if (colonIndex > 0) {
+                    const key = line.substring(0, colonIndex).trim();
+                    const value = line.substring(colonIndex + 1).trim().replace(/^["']|["']$/g, '');
+                    post[key] = value;
+                }
+            });
+            
+            // Chuyển đổi Markdown sang HTML
+            post.content = mdToHtml(content);
+            post.formattedDate = formatDate(post.date || new Date());
+            
+            return post;
+        }
+        
+        function mdToHtml(md) {
+            if (!md || md.trim() === '') return '';
+            
+            let html = md.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+            
+            // Headers
+            html = html
+                .replace(/^###### (.*)$/gim, '<h6>$1</h6>')
+                .replace(/^##### (.*)$/gim, '<h5>$1</h5>')
+                .replace(/^#### (.*)$/gim, '<h4>$1</h4>')
+                .replace(/^### (.*)$/gim, '<h3>$1</h3>')
+                .replace(/^## (.*)$/gim, '<h2>$1</h2>')
+                .replace(/^# (.*)$/gim, '<h1>$1</h1>');
+            
+            // Bold and Italic
+            html = html
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>');
+            
+            // Links
+            html = html.replace(/\[([^\]]+)]\((https?:\/\/[^\s)]+)\)/gim, 
+                '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+            
+            // Images
+            html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, src) => {
+                // Resolve image paths
+                let imageSrc = src;
+                if (src.startsWith('/')) {
+                    imageSrc = src.substring(1); // Remove leading slash
+                }
+                return `<img src="${imageSrc}" alt="${alt || 'blog image'}" class="post-image">`;
+            });
+            
+            // Lists
+            html = html.replace(/^\s*[-*+]\s+(.+)$/gim, '<li>$1</li>');
+            html = html.replace(/(<li>.*?<\/li>\s*)+/g, (match) => `<ul>\n${match.trim()}\n</ul>\n`);
+            
+            // Blockquotes
+            html = html.replace(/^>\s*(.+)$/gm, '<blockquote>$1</blockquote>');
+            
+            // Code blocks
+            html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+            
+            // Inline code
+            html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+            
+            // Paragraphs
+            const paragraphs = html.split(/\n\s*\n/);
+            html = paragraphs.map(para => {
+                para = para.trim();
+                if (!para) return '';
+                if (para.match(/^<(h[1-6]|ul|ol|li|img|blockquote|pre)/i)) return para;
+                para = para.replace(/\n/g, '<br>'); 
+                return `<p>${para}</p>`;
+            }).filter(para => para).join('\n');
+            
+            // Clean up any empty tags
+            html = html.replace(/<p><\/p>|<p>\s*<\/p>|<\/ul>\s*<ul>|<\/ol>\s*<ol>/g, '');
+            
+            return html;
+        }
+        
+        function formatDate(dateString) {
+            try {
+                const date = new Date(dateString);
+                return date.toLocaleDateString('vi-VN', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric'
+                });
+            } catch (error) {
+                return dateString;
+            }
+        }
     </script>
 </head>
 <body>
-    <p>Chuyển hướng đến bài viết...</p>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="Hyperliquid Vietnam Logo">
+                        <span>Hyperliquid Vietnam</span>
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="blog.html" class="active">Blog</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Hướng dẫn</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </nav>
+                <div class="header-buttons">
+                    <a href="https://app.hyperliquid.xyz" target="_blank" class="btn btn-primary">Bắt đầu giao dịch</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Blog Post Section -->
+    <section class="blog-post-section">
+        <div class="container">
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Đang tải bài viết...</p>
+            </div>
+            
+            <div id="error" class="error" style="display: none;">
+                <h2>Không tìm thấy bài viết</h2>
+                <p>Bài viết bạn đang tìm kiếm không tồn tại hoặc đã bị xóa.</p>
+                <a href="blog.html" class="btn btn-primary">Quay lại trang Blog</a>
+            </div>
+            
+            <div id="post-container" class="blog-post-container" style="display: none;">
+                <div class="post-meta">
+                    <span id="post-date" class="post-date"></span>
+                </div>
+                <h1 id="post-title" class="post-title"></h1>
+                <div id="post-content" class="post-content"></div>
+                
+                <div class="post-navigation">
+                    <a href="blog.html" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Quay lại Blog</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>Hyperliquid Vietnam</h3>
+                    <p>Cộng đồng Hyperliquid tại Việt Nam, cung cấp tin tức, hướng dẫn và hỗ trợ cho người dùng.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Liên kết nhanh</h3>
+                    <ul>
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="https://app.hyperliquid.xyz" target="_blank">Bắt đầu giao dịch</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Liên hệ & Cộng đồng</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-discord"></i> Discord</a></li>
+                        <li><a href="#"><i class="fab fa-telegram"></i> Telegram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hyperliquid Vietnam. All rights reserved.</p>
+                <p class="disclaimer">Hyperliquid Vietnam không phải là tổ chức chính thức của Hyperliquid.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
