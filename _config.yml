@@ -17,9 +17,9 @@ defaults:
       path: "content/blog"
       type: "blog"
     values:
-      layout: post
+      layout: blog
   - scope:
       path: "content/news"
       type: "news"
     values:
-      layout: post
+      layout: blog
