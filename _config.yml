@@ -1,12 +1,16 @@
+title: Hyperliquid Việt Nam
+source: .
+destination: _site
+
 collections:
   blog:
     output: true
-    permalink: /blog/:slug/
     source: content/blog
+    permalink: /blog/:slug/
   news:
     output: true
-    permalink: /news/:slug/
     source: content/news
+    permalink: /news/:slug/
 
 defaults:
   - scope:

@@ -4,10 +4,11 @@ title: Blog
 ---
 
 <div class="blog-list-container">
-    <h1 class="page-title">Blog</h1>
+    <h1 class="page-title">{{ page.title }}</h1>
     
     <div class="blog-posts">
-        {% for post in site.blog %}
+        {% assign posts = site.blog | sort: "date" | reverse %}
+        {% for post in posts %}
         <article class="blog-post-card">
             <a href="{{ post.url }}" class="post-link">
                 {% if post.featured_image %}
