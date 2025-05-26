@@ -14,6 +14,14 @@ backend:
 media_folder: "uploads" # Where to store uploaded files
 public_folder: "/uploads" # The src attribute for uploaded files
 
+slug:
+  clean_accents: true
+  encoding: "ascii"
+  sanitize_replacement: "-"
+
+media_library:
+  name: uploadcare
+
 collections:
   - name: "blog"
     label: "Blog Posts"
