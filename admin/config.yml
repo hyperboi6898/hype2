@@ -3,7 +3,7 @@ backend:
   repo: hyperboi6898/hype2 # Your GitHub repository
   branch: master # Your default branch
   base_url: https://sveltia-cms-auth2.hyperboi6898.workers.dev # Your OAuth handler
-  auth_endpoint: auth
+  auth_endpoint: oauth/authorize
   commit_messages:
     create: 'Create {{collection}} "{{slug}}"'
     update: 'Update {{collection}} "{{slug}}"'
