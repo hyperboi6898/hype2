@@ -15,7 +15,7 @@ permalink: /blog/
             <a href="{{ post.url | relative_url }}" class="post-link">
                 {% if post.featured_image %}
                 <div class="post-image">
-                    <img src="{{ post.featured_image | relative_url }}" alt="{{ post.title }}">
+                    <img src="{{ post.featured_image | relative_url }}" alt="{{ post.title }}" loading="lazy">
                 </div>
                 {% endif %}
                 <div class="post-details">

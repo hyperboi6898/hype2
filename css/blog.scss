@@ -1,6 +1,11 @@
 ---
 ---
 /* Blog specific styles */
+
+/* Blog post container */
+.blog-post-container {
+    padding: 30px;
+}
 .blog-posts {
     padding: 60px 0;
     background-color: var(--surface, #0f2126);
@@ -24,17 +29,17 @@
 }
 
 .blog-post-card {
-    background: var(--card, #14272b);
+    background: var(--card, #0e1c21);
     border-radius: var(--border-radius, 8px);
     overflow: hidden;
-    box-shadow: var(--box-shadow, 0 5px 15px rgba(0, 0, 0, 0.3));
+    box-shadow: var(--box-shadow, 0 5px 15px rgba(0, 0, 0, 0.25));
     transition: var(--transition, all 0.3s ease);
     margin-bottom: 30px;
 }
 
 .blog-post-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 
 .post-link {
@@ -49,19 +54,25 @@
     height: 200px;
     margin-bottom: 15px;
     border-radius: var(--border-radius, 8px);
-    overflow: hidden;
+    overflow: hidden; /* Prevent image overflow on hover */
 }
 
 .post-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.post-image:hover img {
+    transform: scale(1.03); /* Subtle zoom effect on hover */
 }
 
 .post-title {
     font-size: 1.5rem;
     margin-bottom: 10px;
     color: var(--primary-color, #00e8bf);
+    scroll-margin-top: 100px; /* Prevents title from being hidden under navigation when using anchor links */
 }
 
 .post-meta {
@@ -75,13 +86,80 @@
     line-height: 1.6;
 }
 
+/* Responsive images in blog posts */
+.post-content img,
+.post-featured-image img {
+    display: block;       /* Remove whitespace below images */
+    max-width: 100%;      /* Most important - prevent overflow */
+    height: auto;         /* Maintain aspect ratio */
+    margin: 1.25rem auto; /* Spacing above/below + center */
+    border-radius: 8px;   /* Match card corner radius */
+    object-fit: contain;  /* Preserve entire image */
+    max-height: 80vh;     /* Limit height for very tall images */
+    box-shadow: var(--box-shadow);
+    /* Note: loading="lazy" should be applied to the HTML img tag, not in CSS */
+}
+
+/* Featured image container */
+.post-featured-image {
+    overflow: hidden;     /* Crop overflow if image scales */
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+/* Blog post content typography */
+.blog-post .post-content {
+    font-size: var(--font-base);
+    line-height: var(--lh-base);
+    letter-spacing: 0.01em;
+}
+
+/* Paragraph spacing */
+.blog-post .post-content p,
+.blog-post .post-content ul,
+.blog-post .post-content ol {
+    margin-bottom: 1.2em;
+}
+
+/* Headings in blog posts */
+.blog-post .post-content h1,
+.blog-post .post-content h2,
+.blog-post .post-content h3,
+.blog-post .post-content h4,
+.blog-post .post-content h5,
+.blog-post .post-content h6 {
+    scroll-margin-top: 100px; /* For anchor links */
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
+    color: var(--text);
+}
+
+/* Code blocks */
+.blog-post .post-content pre {
+    background: var(--bg);
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+/* Blockquotes */
+.blog-post .post-content blockquote {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    font-style: italic;
+    color: var(--muted);
+}
+
 /* Individual blog post page styling */
 .blog-post-container {
-    background: var(--card, #14272b);
+    background: var(--card, #0e1c21); /* Updated color for better contrast */
     border-radius: var(--border-radius, 8px);
-    padding: 30px;
-    margin: 40px 0;
-    box-shadow: var(--box-shadow, 0 5px 15px rgba(0, 0, 0, 0.3));
+    box-shadow: var(--box-shadow, 0 5px 15px rgba(0, 0, 0, 0.25));
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .blog-post {

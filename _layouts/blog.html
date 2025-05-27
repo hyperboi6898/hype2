@@ -17,7 +17,7 @@ layout: default
 
         {% if page.featured_image %}
         <div class="post-featured-image">
-            <img src="{{ page.featured_image | relative_url }}" alt="{{ page.title }}">
+            <img src="{{ page.featured_image | relative_url }}" alt="{{ page.title }}" loading="lazy">
         </div>
         {% endif %}
 
