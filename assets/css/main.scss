@@ -1,6 +1,77 @@
 ---
 ---
 
+/* Định dạng lại container chung để căn giữa nội dung trang */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  /* Đảm bảo nội dung không dính sát mép màn hình trên thiết bị nhỏ */
+  box-sizing: border-box;
+}
+
+/* Đảm bảo hình ảnh co giãn tốt trong các khung chứa linh hoạt */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Style cho phần tiêu đề, đoạn văn... trên nền tối (tăng độ tương phản) */
+header, footer, body {
+  color: #f0f0f0;  /* màu chữ sáng trên nền tối */
+}
+a {
+  color: #00ffcc; /* liên kết sử dụng màu nhấn chủ đạo */
+}
+a:hover {
+  opacity: 0.8;
+}
+
+/* ===== Style cho Slideshow (Swiper) ===== */
+.hero-slider {
+  position: relative;
+  margin-bottom: 2rem;
+}
+.hero-slider .swiper-container {
+  width: 100%;
+  height: 400px; /* chiều cao cố định cho slider (có thể điều chỉnh) */
+}
+.hero-slider .swiper-slide {
+  position: relative;
+  text-align: center;
+  background: #000; /* nền đen cho slide (nếu ảnh không phủ hết) */
+}
+.hero-slider .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ảnh phủ toàn bộ khung slider */
+}
+.hero-slider .slide-caption {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.5); /* nền tối mờ cho phần chữ */
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+}
+/* Nút điều hướng next/prev của Swiper */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #00ffcc;  /* Màu nút (sử dụng màu chủ đạo hiện tại) */
+}
+/* Các chấm chỉ thị slide (pagination) */
+.swiper-pagination-bullet {
+  background: #bbb;
+  opacity: 0.7;
+}
+.swiper-pagination-bullet-active {
+  background: #00ffcc; /* màu chủ đạo cho chấm đang hoạt động */
+  opacity: 1;
+}
+
 // Main SCSS file that imports all partials
 
 // Import base styles
