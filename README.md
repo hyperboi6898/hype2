@@ -22,14 +22,28 @@ hype2/
 ├── Gemfile                    # Ruby dependencies
 ├── _layouts/                  # Layout templates
 │   ├── default.html           # Main site layout
-│   └── blog.html              # Blog post layout
+│   └── blog.html              # Blog post layout with comments and view counter
 ├── _includes/                 # Reusable components
+├── _plugins/                  # Custom Jekyll plugins
+│   └── referral_filter.rb     # Plugin for Hyperliquid referral links
+├── _sass/                     # SCSS partials
+│   ├── _base.scss             # Base styles and variables
+│   ├── _layout.scss           # Layout styles
+│   └── components/            # Component styles
+│       ├── _buttons.scss       # Button styles
+│       ├── _card.scss          # Card styles
+│       └── _blog.scss          # Blog-specific styles
+├── assets/                    # Asset files
+│   └── css/                   # Compiled CSS
+│       └── main.scss           # Main SCSS file that imports all partials
+├── cloudflare/                # Cloudflare resources
+│   └── worker/                # Cloudflare Worker for view counter
+│       ├── index.js             # Worker script
+│       └── wrangler.toml        # Worker configuration
 ├── content/                   # Content collections directory
 │   ├── _blog/                 # Blog posts (markdown)
 │   └── _news/                 # News articles (markdown)
-├── css/                       # Stylesheets
-│   ├── blog.scss              # Blog-specific styles
-│   └── styles.scss            # Main site styles
+├── css/                       # Legacy stylesheets (kept for reference)
 ├── js/                        # JavaScript files
 │   └── main.js                # Main site functionality
 ├── uploads/                   # Uploaded images
@@ -48,6 +62,12 @@ hype2/
 - Content management through Sveltia CMS
 - Fast loading times with static site generation
 - SEO-friendly URLs and metadata
+- Organized SCSS architecture with partials for better maintainability
+- Giscus comments system integrated with GitHub Discussions
+- Page view counter using Cloudflare Workers and KV storage
+- Automatic referral link generation for Hyperliquid URLs
+- Open Graph image generation for better social media sharing
+- Sitemap and RSS feed generation for improved SEO
 
 ## Issues Fixed
 
@@ -141,6 +161,55 @@ Content can be managed through the Sveltia CMS interface at `/admin/`. The CMS i
 - Create and edit blog posts in the `content/_blog` directory
 - Handle image uploads to the `uploads` directory
 - Properly format filenames and slugs for SEO
+
+## Advanced Features
+
+### SCSS Architecture
+
+The CSS is organized using a modular SCSS architecture with partials:
+
+- `_base.scss`: Contains variables, reset styles, and typography
+- `_layout.scss`: Contains header, footer, and page structure styles
+- `components/_buttons.scss`: Button styles
+- `components/_card.scss`: Card and feature box styles
+- `components/_blog.scss`: Blog-specific styles
+
+All partials are imported in `assets/css/main.scss` and compiled by Jekyll with compression enabled.
+
+### Giscus Comments
+
+The blog uses Giscus for comments, which integrates with GitHub Discussions:
+
+- Comments are stored in GitHub Discussions
+- Uses the dark theme to match the site design
+- Configured with Vietnamese language support
+- Automatically maps comments to posts based on pathname
+
+### Page View Counter
+
+Page views are tracked using a Cloudflare Worker and KV storage:
+
+- Worker deployed at `https://view-counter.hyperboi6898.workers.dev`
+- Uses KV namespace for persistent storage
+- Displays view count on each blog post
+- Implements CORS for cross-origin requests
+
+### Referral Link System
+
+A custom Jekyll plugin (`referral_filter.rb`) provides consistent referral links:
+
+- Use `{{ "/trade" | link_to_hl }}` in templates to generate proper referral URLs
+- Automatically adds the referral code `VN84` to all Hyperliquid links
+- Ensures consistent linking throughout the site
+
+### SEO Optimization
+
+SEO is enhanced with several Jekyll plugins:
+
+- `jekyll-seo-tag`: Adds meta tags for search engines and social media
+- `jekyll-sitemap`: Generates a sitemap.xml file
+- `jekyll-feed`: Creates an RSS feed
+- `jekyll-og-image`: Generates Open Graph images for social sharing
 
 ## License
 
