@@ -2,84 +2,38 @@
 layout: default
 title: Trang chủ
 ---
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Enhanced Title and Meta Description -->
-  <title>Hyperliquid Vietnam – Cộng đồng Hyperliquid số 1 Việt Nam | Giao dịch Phái sinh Phi tập trung</title>
-  <meta name="description" content="Cộng đồng Hyperliquid hàng đầu tại Việt Nam. Hướng dẫn giao dịch perp-DEX với độ trễ 20ms, throughput 2000 TPS. Nhận airdrop và ưu đãi phí giao dịch.">
-  <meta name="keywords" content="hyperliquid, vietnam, crypto, trading, defi, perpetual futures, blockchain, giao dịch, phái sinh, airdrop, perp dex">
-  
-  <!-- SEO Enhancements -->
-  <meta name="author" content="Hyperliquid Vietnam">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-  <link rel="canonical" href="https://hyperliquidvietnam.xyz/">
-  
-  <!-- Enhanced Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://hyperliquidvietnam.xyz/">
-  <meta property="og:title" content="Hyperliquid Vietnam - Sàn Giao Dịch Phái Sinh Phi Tập Trung Hàng Đầu">
-  <meta property="og:description" content="Khám phá Hyperliquid - sàn perp-DEX với độ trễ 20ms, throughput 2000 TPS. Cộng đồng Vietnam với hướng dẫn chi tiết và cơ hội airdrop.">
-  <meta property="og:image" content="https://hyperliquidvietnam.xyz/images/og-cover.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:locale" content="vi_VN">
-  <meta property="og:site_name" content="Hyperliquid Vietnam">
 
-  <!-- Enhanced Twitter Cards -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://hyperliquidvietnam.xyz/">
-  <meta name="twitter:title" content="Hyperliquid Vietnam - Giao Dịch Phái Sinh Phi Tập Trung">
-  <meta name="twitter:description" content="Giao dịch phái sinh phi tập trung với Hyperliquid. Độ trễ thấp, bảo mật cao, airdrop hấp dẫn cho cộng đồng Vietnam.">
-  <meta name="twitter:image" content="https://hyperliquidvietnam.xyz/images/og-cover.png">
-  <meta name="twitter:creator" content="@hyperliquid_io">
+<!-- SEO & Meta Tags in _includes/head.html -->
 
-  <!-- Performance Optimization -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="dns-prefetch" href="https://app.hyperliquid.xyz">
-  <link rel="dns-prefetch" href="https://giscus.app">
+<!-- Critical CSS Inline -->
+<style>
+  /* Critical above-the-fold styles */
+  :root {
+    --primary-color: #00e8bf;   /* xanh Hyperliquid */
+    --primary-dark: #009e9a;   /* xanh đậm hơn */
+    --secondary-color: #f093fb;
+    --text-primary: #2d3748;
+    --text-secondary: #4a5568;
+    --background: #ffffff;
+    --surface: #f7fafc;
+    --border: #e2e8f0;
+    --success: #48bb78;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-  <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-  <!-- Critical CSS Inline -->
-  <style>
-    /* Critical above-the-fold styles */
-    :root {
-      --primary-color: #00e8bf;   /* xanh Hyperliquid */
-      --primary-dark: #009e9a;   /* xanh đậm hơn */
-      --secondary-color: #f093fb;
-      --text-primary: #2d3748;
-      --text-secondary: #4a5568;
-      --background: #ffffff;
-      --surface: #f7fafc;
-      --border: #e2e8f0;
-      --success: #48bb78;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      line-height: 1.6;
-      color: var(--text-primary);
-      background: var(--background);
-      overflow-x: hidden;
-    }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--background);
+    overflow-x: hidden;
+  }
 
     .container {
       max-width: 1200px;
@@ -338,34 +292,38 @@ title: Trang chủ
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": "WebSite",
     "name": "Hyperliquid Vietnam",
     "url": "https://hyperliquidvietnam.xyz",
-    "logo": "https://hyperliquidvietnam.xyz/images/logo.png",
-    "description": "Cộng đồng Hyperliquid hàng đầu tại Việt Nam, cung cấp tin tức và hướng dẫn giao dịch phái sinh phi tập trung",
-    "sameAs": [
-      "https://twitter.com/hyperliquid_io",
-      "https://discord.gg/hyperliquid",
-      "https://t.me/hyperliquid_group"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer service",
-      "availableLanguage": "Vietnamese"
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://hyperliquidvietnam.xyz/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
     },
-    "offers": {
-      "@type": "Offer",
-      "description": "Giao dịch phái sinh phi tập trung với Hyperliquid",
-      "url": "https://app.hyperliquid.xyz/join/VN84"
-    }
+    "inLanguage": {
+      "@type": "Language",
+      "name": "Vietnamese",
+      "alternateName": "vi"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Hyperliquid Vietnam"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Hyperliquid Vietnam",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://hyperliquidvietnam.xyz/images/logo.png"
+      }
+    },
+    "description": "Cộng đồng Hyperliquid hàng đầu tại Việt Nam với hướng dẫn giao dịch và tin tức cập nhật về sàn perp-DEX Hyperliquid.",
+    "availableLanguage": "Vietnamese"
   }
   </script>
-</head>
-<body>
-  <!-- Skip Navigation -->
-  <a href="#main-content" class="skip-nav">Bỏ qua điều hướng</a>
 
-  {% include header.html %}
+<!-- Skip Navigation -->
+<a href="#main-content" class="skip-nav">Bỏ qua điều hướng</a>
 
   <main id="main-content">
     <!-- Hero Section -->
@@ -869,6 +827,4 @@ title: Trang chủ
   </script>
 
   <!-- Load main.js asynchronously -->
-  <script src="js/main.js" async></script>
-</body>
-</html>
+  <script src="js/main.js" defer></script>
