@@ -1,0 +1,136 @@
+/* Features Section Styles */
+.features {
+  padding: 60px 0;
+  
+  .features-content {
+    margin-bottom: 2rem;
+  }
+  
+  .features-intro {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 90%;
+    margin: 0 auto 2rem;
+    text-align: center;
+    
+    strong {
+      color: var(--primary-color);
+    }
+    
+    em {
+      font-style: italic;
+      color: var(--text-highlight, #e5f6f4);
+    }
+    
+    @media (max-width: 768px) {
+      font-size: 1.1rem;
+      max-width: 100%;
+    }
+  }
+}
+
+/* Security Section Styles */
+.security {
+  background-color: var(--surface-alt, #0a1a1e);
+  padding: 60px 0;
+  
+  .security-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  
+  .security-icon {
+    font-size: 4rem;
+    color: var(--primary-color);
+    
+    @media (max-width: 768px) {
+      margin-bottom: 1rem;
+    }
+  }
+  
+  .security-info {
+    flex: 1;
+    
+    p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+  }
+  
+  .security-links {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    
+    @media (max-width: 768px) {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+/* Rewards Section Styles */
+.rewards {
+  padding: 60px 0;
+  
+  .rewards-content {
+    background: linear-gradient(135deg, rgba(0,232,191,0.1) 0%, rgba(0,116,96,0.1) 100%);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-top: 2rem;
+    border: 1px solid rgba(0,232,191,0.2);
+  }
+  
+  .rewards-info {
+    p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      
+      strong {
+        color: var(--primary-color);
+      }
+      
+      em {
+        font-style: italic;
+      }
+    }
+  }
+  
+  .rewards-cta {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    @media (max-width: 768px) {
+      align-items: center;
+    }
+    
+    .btn {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      padding: 0.8em 1.5em;
+    }
+    
+    .rewards-note {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      opacity: 0.9;
+      max-width: 90%;
+      
+      @media (max-width: 768px) {
+        max-width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
