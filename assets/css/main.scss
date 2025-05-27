@@ -60,7 +60,7 @@ a:hover {
 /* Nút điều hướng next/prev của Swiper */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #00ffcc;  /* Màu nút (sử dụng màu chủ đạo hiện tại) */
+  color: var(--primary-color);  /* Màu nút (sử dụng màu chủ đạo hiện tại) */
 }
 /* Các chấm chỉ thị slide (pagination) */
 .swiper-pagination-bullet {
@@ -68,7 +68,7 @@ a:hover {
   opacity: 0.7;
 }
 .swiper-pagination-bullet-active {
-  background: #00ffcc; /* màu chủ đạo cho chấm đang hoạt động */
+  background: var(--primary-color); /* màu chủ đạo cho chấm đang hoạt động */
   opacity: 1;
 }
 
