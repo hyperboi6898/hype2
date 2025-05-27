@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://hyperliquidvietnam.xyz/sitemap.xml
+
+# Disallow access to admin area
+Disallow: /admin/

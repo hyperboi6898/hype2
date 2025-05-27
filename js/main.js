@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mobileMenuBtn && nav) {
         mobileMenuBtn.addEventListener('click', function() {
             nav.classList.toggle('active');
+            // Update aria-expanded for accessibility
+            const isExpanded = nav.classList.contains('active');
+            mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
         });
     }
     

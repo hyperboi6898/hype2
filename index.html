@@ -4,44 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hyperliquid Vietnam - Cộng đồng hàng đầu về Hyperliquid tại Việt Nam</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Hyperliquid Vietnam - Cộng đồng, tin tức và hướng dẫn giao dịch Hyperliquid hàng đầu tại Việt Nam.">
+    <meta name="keywords" content="hyperliquid, vietnam, crypto, trading, defi, perpetual futures, blockchain, giao dịch, phái sinh">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hyperliquidvietnam.xyz/">
+    <meta property="og:title" content="Hyperliquid Vietnam">
+    <meta property="og:description" content="Cộng đồng, tin tức và hướng dẫn giao dịch Hyperliquid hàng đầu tại Việt Nam.">
+    <meta property="og:image" content="images/og-cover.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://hyperliquidvietnam.xyz/">
+    <meta property="twitter:title" content="Hyperliquid Vietnam">
+    <meta property="twitter:description" content="Cộng đồng, tin tức và hướng dẫn giao dịch Hyperliquid hàng đầu tại Việt Nam.">
+    <meta property="twitter:image" content="images/og-cover.png">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header Section -->
-    <header>
+    <header class="site-header">
         <div class="container">
             <div class="logo">
-                <h1><span class="hyper">Hyper</span><span class="liquid">liquid</span> <span class="vn">Vietnam</span></h1>
+                <h1><a href="/"><span class="hyper">Hyper</span><span class="liquid">liquid</span> <span class="vn">Vietnam</span></a></h1>
             </div>
-            <nav>
+
+            <nav class="primary-nav">
                 <ul>
                     <li><a href="#home">Trang chủ</a></li>
                     <li><a href="#about">Giới thiệu</a></li>
                     <li><a href="#features">Tính năng</a></li>
-                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="/blog/">Blog</a></li>
                     <li><a href="#contact">Liên hệ</a></li>
+                    <li>
+                        <a href="https://app.hyperliquid.xyz/join/VN84"
+                           class="btn btn-primary cta-trade"
+                           target="_blank" rel="noopener noreferrer">
+                           Bắt Đầu Giao Dịch
+                        </a>
+                    </li>
                 </ul>
+
+                <!-- Mobile menu button -->
+                <button class="mobile-menu" aria-label="Mở menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
             </nav>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </div>
-            <div class="cta-button">
-                <a href="https://app.hyperliquid.xyz/join/VN84" target="_blank" class="btn btn-primary">Bắt đầu giao dịch</a>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Chào mừng đến với Hyperliquid Vietnam</h1>
-                <p>Cộng đồng hàng đầu và nguồn thông tin cập nhật về Hyperliquid tại Việt Nam. Khám phá tiềm năng của giao dịch phái sinh phi tập trung.</p>
-                <div class="hero-buttons">
-                    <a href="https://app.hyperliquid.xyz/join/VN84" target="_blank" class="btn btn-primary">Bắt Đầu Giao Dịch</a>
-                    <a href="#blog" class="btn btn-secondary">Khám Phá Blog</a>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Chào mừng đến với Hyperliquid Vietnam</h1>
+                    <p>Cộng đồng hàng đầu và nguồn thông tin cập nhật về Hyperliquid tại Việt Nam. Khám phá tiềm năng của giao dịch phái sinh phi tập trung.</p>
+                    <div class="hero-buttons">
+                        <a href="https://app.hyperliquid.xyz/join/VN84" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Bắt Đầu Giao Dịch</a>
+                        <a href="#blog" class="btn btn-secondary">Khám Phá Blog</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -62,14 +89,14 @@
                     <div class="feature-icon">
                         <i class="fas fa-bolt-lightning"></i>
                     </div>
-                    <h3>Tốc Độ Khớp Lệnh Nhanh</h3>
+                    <h3 class="feature-title">Tốc Độ Khớp Lệnh Nhanh</h3>
                     <p>Trải nghiệm giao dịch mượt mà với độ trễ thấp và tốc độ khớp lệnh nhanh như các sàn CEX hàng đầu.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-shield"></i>
                     </div>
-                    <h3>Phi Tập Trung & An Toàn</h3>
+                    <h3 class="feature-title">Phi Tập Trung & An Toàn</h3>
                     <p>Giao dịch trên blockchain riêng biệt, hoàn toàn on-chain và tự quản lý tài sản của mình.</p>
                 </div>
                 <div class="feature-card">
@@ -94,7 +121,7 @@
                     </div>
                     <p>Hyperliquid là một sàn giao dịch hợp đồng vĩnh cửu phi tập trung (Perpetual Futures DEX) hiệu suất cao, được xây dựng trên Layer 1 blockchain riêng biệt. Nó cung cấp trải nghiệm giao dịch tương tự như các sàn CEX hàng đầu với tốc độ khớp lệnh nhanh, độ trễ thấp và sổ lệnh (order book) đầy đủ tính năng.</p>
                     <p>Với Hyperliquid, người dùng có thể giao dịch nhiều loại tài sản khác nhau với đòn bẩy, hoàn toàn on-chain và tự quản lý tài sản của mình. Dự án tập trung vào việc cung cấp một nền tảng minh bạch, an toàn và thân thiện với người dùng.</p>
-                    <a href="https://app.hyperliquid.xyz/join/VN84" target="_blank" class="btn btn-primary">Bắt đầu giao dịch</a>
+                    <a href="https://app.hyperliquid.xyz/join/VN84" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Bắt Đầu Giao Dịch</a>
                 </div>
                 <div class="about-image">
                     <div class="trading-card">
@@ -143,9 +170,9 @@
                                 <span class="blog-date">25/05/2025</span>
                                 <span class="blog-category">Hướng dẫn</span>
                             </div>
-                            <h3>Giới Thiệu Hyperliquid</h3>
+                            <h3 class="blog-title">Giới Thiệu Hyperliquid</h3>
                             <p>Tìm hiểu về sàn giao dịch Hyperliquid, các tính năng nổi bật và cách thức hoạt động của nền tảng.</p>
-                            <a href="blog/2025-05-25-gioi-thieu-hyperliquid.html" class="read-more success-text">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
+                            <a href="/blog/2025-05-25-gioi-thieu-hyperliquid.html" class="read-more success-text">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     
@@ -158,9 +185,9 @@
                                 <span class="blog-date">25/05/2025</span>
                                 <span class="blog-category">Hướng dẫn</span>
                             </div>
-                            <h3>Nạp Tiền Hyperliquid</h3>
+                            <h3 class="blog-title">Nạp Tiền Hyperliquid</h3>
                             <p>Hướng dẫn chi tiết cách nạp tiền vào Hyperliquid từ nhiều blockchain khác nhau và các lưu ý quan trọng.</p>
-                            <a href="blog/2025-05-25-gioi-thieu-hyperliquid.html" class="read-more success-text">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
+                            <a href="/blog/2025-05-25-nap-tien-hyperliquid.html" class="read-more success-text">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     
@@ -173,9 +200,9 @@
                                 <span class="blog-date">25/05/2025</span>
                                 <span class="blog-category">Hướng dẫn</span>
                             </div>
-                            <h3>Cơ Chế Thanh Lý</h3>
+                            <h3 class="blog-title">Cơ Chế Thanh Lý</h3>
                             <p>Tìm hiểu cơ chế thanh lý vị thế trên Hyperliquid và cách quản lý rủi ro hiệu quả khi giao dịch.</p>
-                            <a href="blog/2025-05-25-gioi-thieu-hyperliquid.html" class="read-more success-text">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
+                            <a href="/blog/2025-05-25-co-che-thanh-ly.html" class="read-more success-text">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     
@@ -188,9 +215,9 @@
                                 <span class="blog-date">24/05/2025</span>
                                 <span class="blog-category">Tin tức</span>
                             </div>
-                            <h3>Cập Nhật Hyperliquid V2</h3>
+                            <h3 class="blog-title">Cập Nhật Hyperliquid V2</h3>
                             <p>Khám phá những tính năng mới nhất trong phiên bản cập nhật Hyperliquid V2 và cách chúng cải thiện trải nghiệm giao dịch.</p>
-                            <a href="blog/2025-05-25-gioi-thieu-hyperliquid.html" class="read-more success-text">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
+                            <a href="/blog/2025-05-24-cap-nhat-hyperliquid-v2.html" class="read-more success-text">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     
@@ -203,9 +230,9 @@
                                 <span class="blog-date">23/05/2025</span>
                                 <span class="blog-category">Phân tích</span>
                             </div>
-                            <h3>Phân Tích Thị Trường</h3>
+                            <h3 class="blog-title">Phân Tích Thị Trường</h3>
                             <p>Đánh giá tình hình thị trường crypto hiện tại và cơ hội giao dịch trên Hyperliquid trong quý 2 năm 2025.</p>
-                            <a href="blog/2025-05-25-gioi-thieu-hyperliquid.html" class="read-more success-text">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
+                            <a href="/blog/2025-05-23-phan-tich-thi-truong.html" class="read-more success-text">Đọc tiếp <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -223,7 +250,7 @@
             </div>
             
             <div class="blog-footer">
-                <a href="blog.html" class="btn btn-secondary">Xem tất cả bài viết</a>
+                <a href="/blog/" class="btn btn-secondary">Xem tất cả bài viết</a>
             </div>
         </div>
     </section>
@@ -232,12 +259,13 @@
     <section class="cta">
         <div class="container">
             <div class="cta-content">
-                <h2>Bắt đầu giao dịch trên <span class="hyper">Hyper</span><span class="liquid">liquid</span> ngay hôm nay</h2>
+                <h2>Bắt Đầu Giao Dịch trên <span class="hyper">Hyper</span><span class="liquid">liquid</span> ngay hôm nay</h2>
                 <p>Trải nghiệm sàn giao dịch hợp đồng vĩnh cửu phi tập trung với hiệu suất cao và phí giao dịch thấp.</p>
-                <a href="https://app.hyperliquid.xyz/join/VN84" target="_blank" class="btn btn-primary">Bắt đầu giao dịch</a>
+                <a href="https://app.hyperliquid.xyz/join/VN84" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Bắt Đầu Giao Dịch</a>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -253,15 +281,15 @@
                         <li><a href="#home">Trang chủ</a></li>
                         <li><a href="#blog">Blog</a></li>
                         <li><a href="#">Tin tức</a></li>
-                        <li><a href="https://app.hyperliquid.xyz/join/VN84" target="_blank">Bắt đầu giao dịch</a></li>
+                        <li><a href="https://app.hyperliquid.xyz/join/VN84" target="_blank" rel="noopener noreferrer">Bắt Đầu Giao Dịch</a></li>
                     </ul>
                 </div>
                 <div class="footer-social">
                     <h3>Liên hệ & Cộng đồng</h3>
                     <ul>
-                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-                        <li><a href="#"><i class="fab fa-discord"></i> Discord</a></li>
-                        <li><a href="#"><i class="fab fa-telegram"></i> Telegram</a></li>
+                        <li><a href="https://twitter.com/hyperliquid_io" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="https://discord.gg/hyperliquid" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i> Discord</a></li>
+                        <li><a href="https://t.me/hyperliquid_group" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram"></i> Telegram</a></li>
                     </ul>
                 </div>
             </div>
