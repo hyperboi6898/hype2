@@ -1,16 +1,11 @@
 // Mobile menu toggle
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.querySelector('.mobile-menu');
-    const nav = document.querySelector('nav');
+    const nav = document.querySelector('.primary-nav');
     
-    if (mobileMenuBtn) {
+    if (mobileMenuBtn && nav) {
         mobileMenuBtn.addEventListener('click', function() {
             nav.classList.toggle('active');
-            if (nav.classList.contains('active')) {
-                nav.style.display = 'block';
-            } else {
-                nav.style.display = 'none';
-            }
         });
     }
     

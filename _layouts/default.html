@@ -9,14 +9,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
+    <header class="site-header">
         <div class="container">
-            <a href="{{ '/' | relative_url }}" class="site-title">Hyperliquid Vietnam</a>
-            <nav>
+            <div class="logo">
+                <h1><a href="{{ '/' | relative_url }}">Hyperliquid Vietnam</a></h1>
+            </div>
+
+            <nav class="primary-nav">
                 <ul>
                     <li><a href="{{ '/' | relative_url }}">Home</a></li>
                     <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+                    <li>
+                        <a href="https://app.hyperliquid.xyz/join/VN84"
+                           class="btn btn-primary cta-trade"
+                           target="_blank" rel="noopener">
+                           Bắt đầu giao dịch
+                        </a>
+                    </li>
                 </ul>
+
+                <!-- Mobile menu button -->
+                <button class="mobile-menu"><i class="fas fa-bars"></i></button>
             </nav>
         </div>
     </header>
