@@ -1,365 +1,957 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hyperliquid Vietnam – Cộng đồng Hyperliquid số 1 Việt Nam</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Enhanced Title and Meta Description -->
+  <title>Hyperliquid Vietnam – Cộng đồng Hyperliquid số 1 Việt Nam | Giao dịch Phái sinh Phi tập trung</title>
+  <meta name="description" content="Cộng đồng Hyperliquid hàng đầu tại Việt Nam. Hướng dẫn giao dịch perp-DEX với độ trễ 20ms, throughput 2000 TPS. Nhận airdrop và ưu đãi phí giao dịch.">
+  <meta name="keywords" content="hyperliquid, vietnam, crypto, trading, defi, perpetual futures, blockchain, giao dịch, phái sinh, airdrop, perp dex">
+  
+  <!-- SEO Enhancements -->
+  <meta name="author" content="Hyperliquid Vietnam">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://hyperliquidvietnam.xyz/">
+  
+  <!-- Enhanced Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hyperliquidvietnam.xyz/">
+  <meta property="og:title" content="Hyperliquid Vietnam - Sàn Giao Dịch Phái Sinh Phi Tập Trung Hàng Đầu">
+  <meta property="og:description" content="Khám phá Hyperliquid - sàn perp-DEX với độ trễ 20ms, throughput 2000 TPS. Cộng đồng Vietnam với hướng dẫn chi tiết và cơ hội airdrop.">
+  <meta property="og:image" content="https://hyperliquidvietnam.xyz/images/og-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:site_name" content="Hyperliquid Vietnam">
 
-  <!-- SEO -->
-  <meta name="description" content="Hyperliquid Vietnam – Cộng đồng, tin tức và hướng dẫn giao dịch Hyperliquid hàng đầu tại Việt Nam." />
-  <meta name="keywords" content="hyperliquid, vietnam, crypto, trading, defi, perpetual futures, blockchain, giao dịch, phái sinh" />
+  <!-- Enhanced Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://hyperliquidvietnam.xyz/">
+  <meta name="twitter:title" content="Hyperliquid Vietnam - Giao Dịch Phái Sinh Phi Tập Trung">
+  <meta name="twitter:description" content="Giao dịch phái sinh phi tập trung với Hyperliquid. Độ trễ thấp, bảo mật cao, airdrop hấp dẫn cho cộng đồng Vietnam.">
+  <meta name="twitter:image" content="https://hyperliquidvietnam.xyz/images/og-cover.png">
+  <meta name="twitter:creator" content="@hyperliquid_io">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://hyperliquidvietnam.xyz/" />
-  <meta property="og:title" content="Hyperliquid Vietnam" />
-  <meta property="og:description" content="Cộng đồng, tin tức và hướng dẫn giao dịch Hyperliquid hàng đầu tại Việt Nam." />
-  <meta property="og:image" content="images/og-cover.png" />
+  <!-- Performance Optimization -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://app.hyperliquid.xyz">
+  <link rel="dns-prefetch" href="https://giscus.app">
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://hyperliquidvietnam.xyz/" />
-  <meta property="twitter:title" content="Hyperliquid Vietnam" />
-  <meta property="twitter:description" content="Cộng đồng, tin tức và hướng dẫn giao dịch Hyperliquid hàng đầu tại Việt Nam." />
-  <meta property="twitter:image" content="images/og-cover.png" />
+  <!-- Favicon and App Icons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="/assets/css/main.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Critical CSS Inline -->
+  <style>
+    /* Critical above-the-fold styles */
+    :root {
+      --primary-color: #667eea;
+      --primary-dark: #764ba2;
+      --secondary-color: #f093fb;
+      --text-primary: #2d3748;
+      --text-secondary: #4a5568;
+      --background: #ffffff;
+      --surface: #f7fafc;
+      --border: #e2e8f0;
+      --success: #48bb78;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--background);
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Skip navigation for accessibility */
+    .skip-nav {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: var(--primary-color);
+      color: white;
+      padding: 8px;
+      text-decoration: none;
+      border-radius: 4px;
+      z-index: 9999;
+      transition: top 0.3s;
+    }
+
+    .skip-nav:focus {
+      top: 6px;
+    }
+
+    /* Header styles */
+    .site-header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .hyper { color: var(--primary-color); }
+    .liquid { color: var(--primary-dark); }
+    .vn { color: var(--secondary-color); }
+
+    .navbar-nav {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .navbar-nav a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .navbar-nav a:hover {
+      color: var(--primary-color);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    /* Mobile menu */
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .hamburger-line {
+      width: 25px;
+      height: 3px;
+      background: var(--text-primary);
+      margin: 3px 0;
+      transition: var(--transition);
+    }
+
+    /* Hero section */
+    .hero {
+      padding-top: 120px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23667eea" stop-opacity="0.1"/><stop offset="100%" stop-color="%23667eea" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="150" fill="url(%23a)"/><circle cx="800" cy="300" r="200" fill="url(%23a)"/><circle cx="400" cy="700" r="180" fill="url(%23a)"/></svg>');
+      opacity: 0.6;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .navbar-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 2rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-nav.active {
+        display: flex;
+      }
+
+      .mobile-menu-toggle {
+        display: flex;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
+
+      .hero-cta {
+        justify-content: center;
+      }
+    }
+
+    /* Loading animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fadeInUp {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+  </style>
+
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="/assets/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/main.css"></noscript>
+
+  <!-- Font loading optimization -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Icons -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Hyperliquid Vietnam",
+    "url": "https://hyperliquidvietnam.xyz",
+    "logo": "https://hyperliquidvietnam.xyz/images/logo.png",
+    "description": "Cộng đồng Hyperliquid hàng đầu tại Việt Nam, cung cấp tin tức và hướng dẫn giao dịch phái sinh phi tập trung",
+    "sameAs": [
+      "https://twitter.com/hyperliquid_io",
+      "https://discord.gg/hyperliquid",
+      "https://t.me/hyperliquid_group"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "availableLanguage": "Vietnamese"
+    },
+    "offers": {
+      "@type": "Offer",
+      "description": "Giao dịch phái sinh phi tập trung với Hyperliquid",
+      "url": "https://app.hyperliquid.xyz/join/VN84"
+    }
+  }
+  </script>
 </head>
 <body>
-  <!-- Header -->
-  <header class="site-header">
-    <div class="container flex-between">
-      <h1 class="logo">
-        <a href="/" title="Hyperliquid Vietnam">
-          <span class="hyper">Hyper</span><span class="liquid">liquid</span>
-          <span class="vn">Vietnam</span>
-        </a>
-      </h1>
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="skip-nav">Bỏ qua điều hướng</a>
 
-      <nav class="primary-nav" aria-label="Điều hướng chính">
-        <ul>
-          <li><a href="#home">Trang chủ</a></li>
-          <li><a href="#about">Giới thiệu</a></li>
-          <li><a href="#features">Tính năng</a></li>
-          <li><a href="/blog/">Blog</a></li>
-          <li><a href="#contact">Liên hệ</a></li>
-          <li>
-            <a
-              href="https://app.hyperliquid.xyz/join/VN84"
-              class="btn btn-primary cta-trade"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Bắt Đầu Giao Dịch</a
-            >
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <nav class="navbar" role="navigation" aria-label="Điều hướng chính">
+        <div class="navbar-brand">
+          <a href="/" class="logo" aria-label="Hyperliquid Vietnam - Trang chủ">
+            <span class="hyper" aria-hidden="true">Hyper</span><span class="liquid" aria-hidden="true">liquid</span>
+            <span class="vn" aria-hidden="true">Vietnam</span>
+          </a>
+        </div>
+
+        <ul class="navbar-nav" id="navbar-menu" role="menubar">
+          <li role="none"><a href="#home" role="menuitem">Trang chủ</a></li>
+          <li role="none"><a href="#about" role="menuitem">Giới thiệu</a></li>
+          <li role="none"><a href="#features" role="menuitem">Tính năng</a></li>
+          <li role="none"><a href="/blog/" role="menuitem">Blog</a></li>
+          <li role="none"><a href="#contact" role="menuitem">Liên hệ</a></li>
+          <li role="none">
+            <a href="{{ '/trade' | link_to_hl }}" 
+               class="btn btn-primary" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               role="menuitem"
+               aria-label="Bắt đầu giao dịch trên Hyperliquid (mở tab mới)">
+              Bắt Đầu Giao Dịch
+            </a>
           </li>
         </ul>
 
-        <!-- Mobile toggle -->
-        <button class="mobile-menu" aria-label="Mở menu" aria-expanded="false">
-          <i class="fas fa-bars"></i>
+        <button class="mobile-menu-toggle" 
+                aria-label="Mở menu điều hướng" 
+                aria-expanded="false" 
+                aria-controls="navbar-menu"
+                type="button">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
         </button>
       </nav>
     </div>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section id="home" class="hero section-space">
-      <div class="container grid-2col">
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section id="home" class="hero" aria-labelledby="hero-title">
+      <div class="container">
         <div class="hero-content">
-          <h1>Chào mừng đến với Hyperliquid Vietnam</h1>
-          <p>
-            Cộng đồng hàng đầu và nguồn thông tin cập nhật về Hyperliquid tại Việt Nam.
-            Khám phá tiềm năng của giao dịch phái sinh phi tập trung.
-          </p>
-          <div class="hero-buttons">
-            <a
-              href="https://app.hyperliquid.xyz/join/VN84"
-              class="btn btn-primary"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Bắt Đầu Giao Dịch</a
-            >
-            <a href="#blog" class="btn btn-secondary">Khám Phá Blog</a>
+          <div class="hero-text animate-fadeInUp">
+            <h1 id="hero-title">Chào mừng đến với Hyperliquid Vietnam</h1>
+            <p class="hero-description">
+              Cộng đồng hàng đầu và nguồn thông tin cập nhật về Hyperliquid tại Việt Nam.
+              Khám phá tiềm năng của giao dịch phái sinh phi tập trung với độ trễ chỉ <strong>20ms</strong> và throughput <strong>2000 TPS</strong>.
+            </p>
+            <div class="hero-cta">
+              <a href="{{ '/trade' | link_to_hl }}" 
+                 class="btn btn-primary"
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 aria-label="Bắt đầu giao dịch trên Hyperliquid (mở tab mới)">
+                <i class="fas fa-rocket" aria-hidden="true"></i>
+                Bắt Đầu Giao Dịch
+              </a>
+              <a href="#blog" class="btn btn-secondary">
+                <i class="fas fa-book-open" aria-hidden="true"></i>
+                Khám Phá Blog
+              </a>
+            </div>
+          </div>
+          <div class="hero-visual animate-fadeInUp">
+            <img src="images/hero-image.png" 
+                 alt="Giao diện trading Hyperliquid hiển thị biểu đồ giá và sổ lệnh thời gian thực" 
+                 width="600" 
+                 height="400"
+                 loading="eager"
+                 decoding="async">
           </div>
         </div>
-        <figure class="hero-image">
-          <img src="images/hero-image.png" alt="Giao diện Hyperliquid" />
-        </figure>
       </div>
     </section>
 
-    <!-- Features -->
-    <section id="features" class="features section-space">
+    <!-- Features Section -->
+    <section id="features" class="features section-space" aria-labelledby="features-title">
       <div class="container">
-        <header class="section-header">
-          <h2>Vì sao nên giao dịch trên Hyperliquid?</h2>
-          <div class="underline"></div>
+        <header class="section-header text-center">
+          <h2 id="features-title">Vì sao nên giao dịch trên Hyperliquid?</h2>
+          <div class="underline" aria-hidden="true"></div>
         </header>
 
-        <p class="features-intro">
-          Hyperliquid đã vươn lên dẫn đầu các sàn perp‑DEX khi nắm gần
-          <strong>80 % khối lượng giao dịch</strong> hợp đồng vĩnh cửu toàn thị trường và liên tiếp đứng số 1 về
-          open‑interest Bitcoin. Nền tảng L1 đạt độ trễ ≈<strong>20 ms</strong> cùng throughput
-          <strong>2 000 TPS</strong> nhờ kiến trúc HyperBFT—cho trải nghiệm <em>"mượt như CEX"</em> ngay trên on‑chain order book.
-        </p>
+        <div class="features-intro">
+          <p class="lead">
+            Hyperliquid đã vươn lên dẫn đầu các sàn perp‑DEX khi nắm gần
+            <strong>80% khối lượng giao dịch</strong> hợp đồng vĩnh cửu toàn thị trường và liên tiếp đứng số 1 về
+            open‑interest Bitcoin. Nền tảng L1 đạt độ trễ ≈<strong>20ms</strong> cùng throughput
+            <strong>2000 TPS</strong> nhờ kiến trúc HyperBFT—cho trải nghiệm <em>"mượt như CEX"</em> ngay trên on‑chain order book.
+          </p>
+        </div>
 
-        <div class="features-grid grid-3col gap-lg">
+        <div class="features-grid">
           <article class="feature-card">
-            <div class="feature-icon"><i class="fas fa-exchange-alt"></i></div>
-            <h3 class="feature-title">Giao dịch đa dạng</h3>
+            <div class="feature-icon" aria-hidden="true">
+              <i class="fas fa-exchange-alt"></i>
+            </div>
+            <h3 class="feature-title">Giao dịch đa dạng</h3>
             <p class="feature-description">
-              Giao dịch spot & perp trên Hyperliquid L1 và HyperEVM – chia sẻ thanh khoản, trải nghiệm liền mạch.
+              Giao dịch spot & perp trên Hyperliquid L1 và HyperEVM – chia sẻ thanh khoản, trải nghiệm liền mạch với hơn 30 tài sản crypto.
             </p>
           </article>
 
           <article class="feature-card">
-            <div class="feature-icon"><i class="fas fa-dollar-sign"></i></div>
-            <h3 class="feature-title">Hỗ trợ stablecoin</h3>
+            <div class="feature-icon" aria-hidden="true">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3 class="feature-title">Bảo mật tuyệt đối</h3>
             <p class="feature-description">
-              Tích hợp USDT<sub>0</sub> và USDe, mở khóa vốn ổn định sâu rộng cho ký quỹ & DeFi.
+              Kiểm toán bởi Zellic, Bug Bounty 1M USDC. Tự quản lý ví, hoàn toàn on-chain và minh bạch.
             </p>
           </article>
 
           <article class="feature-card">
-            <div class="feature-icon"><i class="fas fa-users"></i></div>
-            <h3 class="feature-title">Team tinh gọn</h3>
+            <div class="feature-icon" aria-hidden="true">
+              <i class="fas fa-coins"></i>
+            </div>
+            <h3 class="feature-title">Cơ hội airdrop</h3>
             <p class="feature-description">
-              Chỉ ~10 builder “nhỏ mà có võ” tập trung tuyệt đối vào sản phẩm & hiệu suất.
+              Còn lại 38% tổng cung HYPE (~14 tỷ USD) cho các mùa airdrop kế tiếp. Tham gia sớm để không bỏ lỡ cơ hội.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Security -->
-    <section id="security" class="security section-space">
+    <!-- Security Section -->
+    <section id="security" class="security section-space bg-surface" aria-labelledby="security-title">
       <div class="container">
-        <header class="section-header">
-          <h2>Bảo mật & Tin cậy</h2>
-          <div class="underline"></div>
+        <header class="section-header text-center">
+          <h2 id="security-title">Bảo mật & Tin cậy</h2>
+          <div class="underline" aria-hidden="true"></div>
         </header>
 
         <div class="security-content">
-          <div class="security-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="security-visual">
+            <div class="security-icon" aria-hidden="true">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+          </div>
           <div class="security-info">
-            <p>
-              Cầu nối Hyperliquid đã được <strong>Zellic</strong> kiểm toán nhiều vòng; báo cáo PDF công khai trên
-              GitBook. Dự án còn treo thưởng <strong>1 000 000 USDC</strong> cho Bug Bounty nghiêm trọng—khẳng định mức độ
-              cam kết với an toàn tài sản người dùng.
+            <p class="lead">
+              Cầu nối Hyperliquid đã được <strong>Zellic</strong> kiểm toán nhiều vòng với báo cáo PDF công khai. 
+              Dự án còn treo thưởng <strong>1.000.000 USDC</strong> cho Bug Bounty nghiêm trọng—khẳng định cam kết 
+              tuyệt đối với an toàn tài sản người dùng.
             </p>
             <div class="security-links">
-              <a
-                href="https://docs.hyperliquid.xyz/hyperliquid-docs/"
-                class="btn btn-secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Hyperliquid Docs</a
-              >
-              <a
-                href="https://zellic.io/blog/hyperliquid-bridge-audit/"
-                class="btn btn-secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Báo cáo Audit</a
-              >
+              <a href="https://docs.hyperliquid.xyz/hyperliquid-docs/" 
+                 class="btn btn-secondary"
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 aria-label="Xem tài liệu Hyperliquid (mở tab mới)">
+                <i class="fas fa-book" aria-hidden="true"></i>
+                Hyperliquid Docs
+              </a>
+              <a href="https://zellic.io/blog/hyperliquid-bridge-audit/" 
+                 class="btn btn-secondary"
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 aria-label="Xem báo cáo kiểm toán bảo mật (mở tab mới)">
+                <i class="fas fa-file-shield" aria-hidden="true"></i>
+                Báo cáo Audit
+              </a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Rewards -->
-    <section id="rewards" class="rewards section-space">
+    <!-- About Section -->
+    <section id="about" class="about section-space" aria-labelledby="about-title">
       <div class="container">
-        <header class="section-header">
-          <h2>Cơ hội nhận thưởng khổng lồ</h2>
-          <div class="underline"></div>
-        </header>
+        <div class="about-content">
+          <div class="about-text">
+            <header class="section-header">
+              <h2 id="about-title">Giới thiệu về Hyperliquid</h2>
+              <div class="underline" aria-hidden="true"></div>
+            </header>
+            <p class="lead">
+              Hyperliquid là sàn perp‑DEX hiệu suất cao xây dựng trên Layer‑1 riêng biệt. Nền tảng mang lại tốc độ khớp
+              lệnh nhanh, độ trễ thấp và sổ lệnh đầy đủ tính năng—tương đương các sàn CEX hàng đầu.
+            </p>
+            <p>
+              Người dùng giao dịch đòn bẩy đa tài sản, hoàn toàn on‑chain và tự quản lý ví—trong môi trường minh bạch, 
+              an toàn và thân thiện với người dùng Việt Nam.
+            </p>
+            <a href="{{ '/trade' | link_to_hl }}" 
+               class="btn btn-primary"
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="Bắt đầu giao dịch trên Hyperliquid (mở tab mới)">
+              <i class="fas fa-chart-line" aria-hidden="true"></i>
+              Bắt Đầu Giao Dịch
+            </a>
+          </div>
 
-        <div class="rewards-content">
-          <div class="rewards-info">
-            <p>
-              Sau airdrop “khai trương” trị giá ~7,6 tỷ USD, Hyperliquid còn lại
-              <strong>38 % tổng cung</strong> ≈ <strong>14 tỷ USD</strong> (giá ~38 USD/HYPE) cho các mùa phân phối kế tiếp.
-            </p>
-            <p>
-              Chiến lược <em>user‑first</em> này khuyến khích giao dịch, cung cấp thanh khoản và xây dựng ứng dụng. SDK &
-              API mở rộng giúp builder dễ dàng triển khai vault, perp tuỳ chỉnh (HIP‑3)…
-            </p>
-          </div>
-          <div class="rewards-cta flex-column-start">
-            <a
-              href="https://app.hyperliquid.xyz/join/VN84"
-              class="btn btn-primary"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Giao dịch ngay</a
-            >
-            <p class="rewards-note">
-              Nhấn để giảm thêm phí, gia nhập cộng đồng Hyperliquid Vietnam và xếp hàng sớm cho những đợt airdrop kế
-              tiếp.
-            </p>
-          </div>
+          <aside class="about-stats" aria-labelledby="stats-title">
+            <div class="trading-card">
+              <div class="trading-card-header">
+                <h3 id="stats-title">Thống kê Hyperliquid</h3>
+                <p>Giao dịch phái sinh phi tập trung</p>
+              </div>
+              <div class="trading-card-body">
+                <div class="stat">
+                  <span class="stat-label">Khối lượng 24h</span>
+                  <div class="stat-value success-text">$250M+</div>
+                </div>
+                <div class="stat">
+                  <span class="stat-label">Open Interest</span>
+                  <div class="stat-value success-text">$100M+</div>
+                </div>
+                <div class="stat">
+                  <span class="stat-label">Số tài sản</span>
+                  <div class="stat-value success-text">30+</div>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="about section-space">
-      <div class="container grid-2col gap-lg">
-        <div class="about-text">
-          <header class="section-header">
-            <h2>Giới thiệu về Hyperliquid</h2>
-            <div class="underline"></div>
-          </header>
-          <p>
-            Hyperliquid là sàn perp‑DEX hiệu suất cao xây dựng trên Layer‑1 riêng biệt. Nền tảng mang lại tốc độ khớp
-            lệnh nhanh, độ trễ thấp và sổ lệnh đầy đủ tính năng—tương đương các sàn CEX hàng đầu.
-          </p>
-          <p>
-            Người dùng giao dịch đòn bẩy đa tài sản, hoàn toàn on‑chain và tự quản lý ví—trong môi trường minh bạch, an
-            toàn và thân thiện.
-          </p>
-          <a
-            href="https://app.hyperliquid.xyz/join/VN84"
-            class="btn btn-primary"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Bắt Đầu Giao Dịch</a
-          >
-        </div>
-
-        <aside class="about-image">
-          <div class="trading-card">
-            <div class="trading-card-header">
-              <h3>HyperL</h3>
-              <p>Giao dịch phái sinh phi tập trung</p>
-            </div>
-            <div class="trading-card-body trading-stats grid-3col">
-              <div class="stat text-center">
-                <span>24h Volume</span>
-                <h4 class="success-text">$250M+</h4>
-              </div>
-              <div class="stat text-center">
-                <span>Open Interest</span>
-                <h4 class="success-text">$100M+</h4>
-              </div>
-              <div class="stat text-center">
-                <span>Assets</span>
-                <h4 class="success-text">30+</h4>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- Blog -->
-    <section id="blog" class="blog section-space">
+    <!-- Blog Section -->
+    <section id="blog" class="blog section-space bg-surface" aria-labelledby="blog-title">
       <div class="container">
-        <header class="section-header">
-          <h2>Bài viết mới nhất</h2>
-          <div class="underline"></div>
+        <header class="section-header text-center">
+          <h2 id="blog-title">Bài viết mới nhất</h2>
+          <div class="underline" aria-hidden="true"></div>
         </header>
 
         <div class="blog-slider">
-          <div class="blog-slider-container">
-            {% for post in site.posts limit:5 %}
+          <div class="blog-slider-container" id="blog-posts">
+            {% for post in site.blog limit:5 %}
             <article class="blog-post blog-post-card">
-              <a href="{{ post.url }}" class="post-link">
+              <a href="{{ post.url | relative_url }}" class="post-link" aria-label="Đọc bài viết: {{ post.title }}">
                 <div class="post-image">
-                  <img
-                    src="{{ post.image | default: 'images/blog/blog-default.png' }}"
-                    alt="{{ post.title }}"
-                    loading="lazy"
-                  />
+                  {% if post.featured_image %}
+                    <img src="{{ post.featured_image | relative_url }}" 
+                         alt="{{ post.title }}" 
+                         loading="lazy"
+                         width="300" 
+                         height="200"
+                         decoding="async">
+                  {% else %}
+                    <img src="images/blog/blog-default.png" 
+                         alt="Hình ảnh mặc định cho bài viết {{ post.title }}" 
+                         loading="lazy"
+                         width="300" 
+                         height="200"
+                         decoding="async">
+                  {% endif %}
                 </div>
-                <h3 class="post-title">{{ post.title }}</h3>
-                <div class="post-meta">
-                  {{ post.date | date: "%d/%m/%Y" }} · {{ post.categories | first }}
+                <div class="post-content">
+                  <h3 class="post-title">{{ post.title }}</h3>
+                  <div class="post-meta">
+                    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d/%m/%Y" }}</time>
+                    {% if post.categories.first %}
+                      <span class="post-category">{{ post.categories.first }}</span>
+                    {% endif %}
+                  </div>
+                  {% if post.description %}
+                    <p class="post-excerpt">{{ post.description | truncatewords: 25 }}</p>
+                  {% else %}
+                    <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+                  {% endif %}
+                  <span class="read-more success-text">
+                    Đọc tiếp <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                  </span>
                 </div>
-                <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
-                <span class="read-more success-text">Đọc tiếp <i class="fas fa-arrow-right"></i></span>
               </a>
             </article>
             {% endfor %}
           </div>
 
+          <!-- Blog Navigation -->
           <div class="blog-slider-controls">
-            <button class="slider-btn prev-slide" aria-label="Bài trước"><i class="fas fa-chevron-left"></i></button>
-            <button class="slider-btn next-slide" aria-label="Bài tiếp"><i class="fas fa-chevron-right"></i></button>
+            <button class="slider-btn prev-slide" aria-label="Bài viết trước" type="button">
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <button class="slider-btn next-slide" aria-label="Bài viết tiếp theo" type="button">
+              <i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </button>
           </div>
 
-          <div class="slider-dots"></div>
+          <div class="slider-dots" role="tablist" aria-label="Điều hướng bài viết"></div>
         </div>
 
-        <div class="text-center mt-lg">
-          <a href="/blog/" class="btn btn-secondary">Xem tất cả bài viết</a>
+        <div class="blog-cta text-center">
+          <a href="/blog/" class="btn btn-secondary">
+            <i class="fas fa-newspaper" aria-hidden="true"></i>
+            Xem tất cả bài viết
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta section-space-sm">
-      <div class="container text-center">
-        <h2>
-          Bắt đầu giao dịch trên <span class="hyper">Hyper</span><span class="liquid">liquid</span> ngay hôm nay
-        </h2>
-        <p>
-          Trải nghiệm sàn perp‑DEX hiệu suất cao cùng phí giao dịch thấp – đăng kí chưa tới 30 giây.
-        </p>
-        <a
-          href="https://app.hyperliquid.xyz/join/VN84"
-          class="btn btn-primary"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Bắt Đầu Giao Dịch</a>
+    <!-- CTA Section -->
+    <section class="cta section-space-sm" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-content text-center">
+          <h2 id="cta-title">
+            Bắt đầu giao dịch trên <span class="hyper">Hyper</span><span class="liquid">liquid</span> ngay hôm nay
+          </h2>
+          <p class="lead">
+            Trải nghiệm sàn perp‑DEX hiệu suất cao cùng phí giao dịch thấp – đăng ký chưa tới 30 giây.
+            Tham gia cộng đồng Vietnam và nhận ưu đãi đặc biệt.
+          </p>
+          <div class="cta-buttons">
+            <a href="{{ '/trade' | link_to_hl }}" 
+               class="btn btn-primary btn-lg"
+               target="_blank" 
+               rel="noopener noreferrer"
+               aria-label="Bắt đầu giao dịch trên Hyperliquid ngay bây giờ (mở tab mới)">
+              <i class="fas fa-rocket" aria-hidden="true"></i>
+              Bắt Đầu Giao Dịch
+            </a>
+            <a href="#features" class="btn btn-secondary btn-lg">
+              <i class="fas fa-info-circle" aria-hidden="true"></i>
+              Tìm hiểu thêm
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container grid-2col gap-lg">
-      <div class="footer-left">
-        <h3>Hyperliquid Vietnam</h3>
-        <p>
-          Cộng đồng Hyperliquid tại Việt Nam, cung cấp tin tức, hướng dẫn và hỗ trợ cho người dùng.
-        </p>
+  <footer class="site-footer" role="contentinfo" aria-labelledby="footer-title">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3 id="footer-title">
+            <span class="hyper">Hyper</span><span class="liquid">liquid</span>
+            <span class="vn">Vietnam</span>
+          </h3>
+          <p>
+            Cộng đồng Hyperliquid tại Việt Nam, cung cấp tin tức, hướng dẫn và hỗ trợ cho người dùng.
+            Không phải website chính thức của Hyperliquid.
+          </p>
+          <div class="footer-cta">
+            <a href="{{ '/trade' | link_to_hl }}" 
+               class="btn btn-primary"
+               target="_blank" 
+               rel="noopener noreferrer">
+              Giao dịch ngay
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-section">
+            <h4>Liên kết</h4>
+            <ul>
+              <li><a href="#home">Trang chủ</a></li>
+              <li><a href="#about">Giới thiệu</a></li>
+              <li><a href="#features">Tính năng</a></li>
+              <li><a href="/blog/">Blog</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Cộng đồng</h4>
+            <ul class="social-links" role="list">
+              <li>
+                <a href="https://twitter.com/hyperliquid_io" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Theo dõi Hyperliquid trên Twitter (mở tab mới)">
+                  <i class="fab fa-twitter" aria-hidden="true"></i>
+                  <span>Twitter</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://discord.gg/hyperliquid" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Tham gia Discord Hyperliquid (mở tab mới)">
+                  <i class="fab fa-discord" aria-hidden="true"></i>
+                  <span>Discord</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://t.me/hyperliquid_group" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Tham gia Telegram Hyperliquid (mở tab mới)">
+                  <i class="fab fa-telegram" aria-hidden="true"></i>
+                  <span>Telegram</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4>Tài nguyên</h4>
+            <ul>
+              <li>
+                <a href="https://docs.hyperliquid.xyz/" target="_blank" rel="noopener noreferrer">
+                  Tài liệu
+                </a>
+              </li>
+              <li>
+                <a href="https://zellic.io/blog/hyperliquid-bridge-audit/" target="_blank" rel="noopener noreferrer">
+                  Báo cáo Audit
+                </a>
+              </li>
+              <li>
+                <a href="https://app.hyperliquid.xyz/" target="_blank" rel="noopener noreferrer">
+                  Giao dịch
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-      <div class="footer-right">
-        <h3>Liên hệ & Cộng đồng</h3>
-        <ul class="social-links">
-          <li>
-            <a href="https://twitter.com/hyperliquid_io" target="_blank" rel="noopener noreferrer"
-              ><i class="fab fa-twitter"></i> Twitter</a
-            >
-          </li>
-          <li>
-            <a href="https://discord.gg/hyperliquid" target="_blank" rel="noopener noreferrer"
-              ><i class="fab fa-discord"></i> Discord</a
-            >
-          </li>
-          <li>
-            <a href="https://t.me/hyperliquid_group" target="_blank" rel="noopener noreferrer"
-              ><i class="fab fa-telegram"></i> Telegram</a
-            >
-          </li>
-        </ul>
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>&copy; 2025 Hyperliquid Vietnam. Tất cả quyền được bảo lưu.</p>
+          <p class="disclaimer">
+            Đây không phải là tư vấn tài chính. Giao dịch crypto có rủi ro cao.
+          </p>
+        </div>
       </div>
-    </div>
-
-    <div class="footer-bottom text-center">
-      <p>&copy; 2025 Hyperliquid Vietnam. All rights reserved.</p>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script>
+    // Critical JavaScript for immediate functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu functionality
+      initMobileMenu();
+      
+      // Smooth scrolling
+      initSmoothScrolling();
+      
+      // Blog slider
+      initBlogSlider();
+      
+      // Add loading class
+      document.body.classList.add('loaded');
+      
+      // Performance monitoring
+      if ('performance' in window) {
+        window.addEventListener('load', function() {
+          const perfData = performance.getEntriesByType('navigation')[0];
+          console.log('Page load time:', Math.round(perfData.loadEventEnd - perfData.loadEventStart), 'ms');
+        });
+      }
+    });
+
+    function initMobileMenu() {
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      const menu = document.querySelector('.navbar-nav');
+      
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', !isExpanded);
+          menu.classList.toggle('active');
+          document.body.classList.toggle('menu-open');
+        });
+
+        // Close menu on click outside
+        document.addEventListener('click', function(e) {
+          if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+            toggle.setAttribute('aria-expanded', 'false');
+            menu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+          }
+        });
+      }
+    }
+
+    function initSmoothScrolling() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            const headerHeight = document.querySelector('.site-header').offsetHeight;
+            const targetPosition = target.offsetTop - headerHeight - 20;
+            
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    }
+
+    function initBlogSlider() {
+      const container = document.querySelector('.blog-slider-container');
+      const prevBtn = document.querySelector('.prev-slide');
+      const nextBtn = document.querySelector('.next-slide');
+      const dotsContainer = document.querySelector('.slider-dots');
+      
+      if (!container || !prevBtn || !nextBtn) return;
+      
+      const posts = container.querySelectorAll('.blog-post-card');
+      let currentSlide = 0;
+      const maxSlides = Math.max(0, posts.length - 1);
+
+      // Create dots
+      for (let i = 0; i <= maxSlides; i++) {
+        const dot = document.createElement('button');
+        dot.classList.add('slider-dot');
+        dot.setAttribute('aria-label', `Slide ${i + 1}`);
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+      }
+
+      function updateSlider() {
+        const offset = currentSlide * -100;
+        container.style.transform = `translateX(${offset}%)`;
+        
+        // Update dots
+        dotsContainer.querySelectorAll('.slider-dot').forEach((dot, index) => {
+          dot.classList.toggle('active', index === currentSlide);
+        });
+        
+        // Update buttons
+        prevBtn.disabled = currentSlide === 0;
+        nextBtn.disabled = currentSlide === maxSlides;
+      }
+
+      function goToSlide(index) {
+        currentSlide = Math.max(0, Math.min(maxSlides, index));
+        updateSlider();
+      }
+
+      prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+      nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+
+      // Keyboard support
+      container.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') goToSlide(currentSlide - 1);
+        if (e.key === 'ArrowRight') goToSlide(currentSlide + 1);
+      });
+
+      // Auto-play (optional)
+      let autoPlay = setInterval(() => {
+        if (currentSlide < maxSlides) {
+          goToSlide(currentSlide + 1);
+        } else {
+          goToSlide(0);
+        }
+      }, 5000);
+
+      // Pause on hover
+      container.addEventListener('mouseenter', () => clearInterval(autoPlay));
+      container.addEventListener('mouseleave', () => {
+        autoPlay = setInterval(() => {
+          if (currentSlide < maxSlides) {
+            goToSlide(currentSlide + 1);
+          } else {
+            goToSlide(0);
+          }
+        }, 5000);
+      });
+
+      updateSlider();
+    }
+
+    // Intersection Observer for animations
+    if ('IntersectionObserver' in window) {
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fadeInUp');
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements
+      document.querySelectorAll('.feature-card, .security-content, .about-content, .blog-post-card').forEach(el => {
+        observer.observe(el);
+      });
+    }
+  </script>
+
+  <!-- Load main.js asynchronously -->
+  <script src="js/main.js" async></script>
 </body>
 </html>
