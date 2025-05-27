@@ -1,0 +1,111 @@
+/* Global Variables */
+:root {
+    /* Hyperliquid color palette */
+    --bg: #041d1b;
+    --surface: #0f2126;
+    --card: #0e1c21; /* Darker for better contrast */
+    --text: #eafafa; /* Slightly brighter for better readability */
+    --muted: #9ab4b3; /* Brighter muted color */
+    --success: #00c7a2;
+    --danger: #ff5c74;
+    
+    /* Additional UI colors */
+    --primary-color: var(--success);
+    --secondary-color: var(--danger);
+    --dark-color: var(--bg);
+    --light-color: var(--text);
+    --text-color: var(--text);
+    --text-light: var(--muted);
+    --border-radius: 8px;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25); /* Reduced opacity */
+    --transition: all 0.3s ease;
+    
+    /* Typography */
+    --font-base: clamp(16px, 1vw + 0.5rem, 18px);
+    --lh-base: 1.75;
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: var(--lh-base);
+    color: var(--text-color);
+    background-color: var(--bg);
+    overflow-x: hidden;
+    font-size: var(--font-base);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+    
+    &:hover {
+        color: lighten(#00c7a2, 10%);
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Container for centering content */
+.container,
+.blog-post-container {
+    max-width: 860px;
+    width: 100%;
+    margin-inline: auto; /* Center horizontally */
+    padding-inline: 1rem; /* Prevent sticking to screen edges on mobile */
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.75em;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
+p {
+    margin-bottom: 1.2em;
+}
+
+ul, ol {
+    margin-bottom: 1.2em;
+    padding-left: 1.5em;
+}

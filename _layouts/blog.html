@@ -12,7 +12,20 @@ layout: default
                 {% if page.author %}
                 <span class="post-author">by {{ page.author }}</span>
                 {% endif %}
+                <span class="post-views"><span id="view-counter">--</span> lượt xem</span>
             </div>
+            
+            <script type="text/javascript">
+                // Fetch view count from Cloudflare Worker
+                fetch('https://view-counter.hyperliquidvietnam.workers.dev{{ page.url }}')
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('view-counter').textContent = data.views;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching view count:', error);
+                    });
+            </script>
         </header>
 
         {% if page.featured_image %}
@@ -23,6 +36,25 @@ layout: default
 
         <div class="post-content">
             {{ content }}
+        </div>
+
+        <div class="post-comments">
+            <h3>Bình luận</h3>
+            <script src="https://giscus.app/client.js"
+                data-repo="hyperboi6898/hype2"
+                data-repo-id="R_kgDOLvXVZw"
+                data-category="General"
+                data-category-id="DIC_kwDOLvXVZ84CdGnj"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="bottom"
+                data-theme="transparent_dark"
+                data-lang="vi"
+                crossorigin="anonymous"
+                async></script>
+            <noscript>Vui lòng bật JavaScript để xem bình luận.</noscript>
         </div>
 
         {% if page.tags.size > 0 %}

@@ -1,0 +1,15 @@
+---
+---
+
+// Main SCSS file that imports all partials
+
+// Import base styles
+@import "base";
+
+// Import layout styles
+@import "layout";
+
+// Import component styles
+@import "components/buttons";
+@import "components/card";
+@import "components/blog";

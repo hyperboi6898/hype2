@@ -1,8 +1,24 @@
 title: Hyperliquid Việt Nam
+description: Cộng đồng hàng đầu và nguồn thông tin cập nhật về Hyperliquid tại Việt Nam
+url: "https://hyperliquidvietnam.xyz"
 source: .
 destination: _site
 
 collections_dir: content
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-og-image
+
+og_image:
+  theme: dark
+  font_size: 72
+  background: '#0f2126'
+
+sass:
+  style: compressed
 
 collections:
   blog:
