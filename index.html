@@ -1,3 +1,7 @@
+---
+layout: default
+title: Trang chủ
+---
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -130,7 +134,7 @@
 
     .hyper { color: var(--primary-color); }
     .liquid { color: var(--primary-dark); }
-    .vn { color: var(--secondary-color); }
+    .vn { color: white; }
 
     .navbar-nav {
       display: flex;
@@ -595,42 +599,23 @@
 
         <div class="blog-slider">
           <div class="blog-slider-container" id="blog-posts">
-            {% for post in site.blog limit:5 %}
-            <article class="blog-post blog-post-card">
-              <a href="{{ post.url | relative_url }}" class="post-link" aria-label="Đọc bài viết: {{ post.title }}">
+            {% assign recent = site.posts | sort: "date" | reverse | slice: 0, 3 %}
+            {% for post in recent %}
+            <article class="blog-post-card">
+              <a href="{{ post.url | relative_url }}" class="post-link">
                 <div class="post-image">
-                  {% if post.featured_image %}
-                    <img src="{{ post.featured_image | relative_url }}" 
-                         alt="{{ post.title }}" 
-                         loading="lazy"
-                         width="300" 
-                         height="200"
-                         decoding="async">
-                  {% else %}
-                    <img src="images/blog/blog-default.png" 
-                         alt="Hình ảnh mặc định cho bài viết {{ post.title }}" 
-                         loading="lazy"
-                         width="300" 
-                         height="200"
-                         decoding="async">
-                  {% endif %}
+                  <img src="{{ post.featured_image | default: '/images/blog/blog-default.png' }}" alt="{{ post.title }}" loading="lazy">
                 </div>
                 <div class="post-content">
                   <h3 class="post-title">{{ post.title }}</h3>
                   <div class="post-meta">
                     <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d/%m/%Y" }}</time>
                     {% if post.categories.first %}
-                      <span class="post-category">{{ post.categories.first }}</span>
+                    <span class="post-category">{{ post.categories.first }}</span>
                     {% endif %}
                   </div>
-                  {% if post.description %}
-                    <p class="post-excerpt">{{ post.description | truncatewords: 25 }}</p>
-                  {% else %}
-                    <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
-                  {% endif %}
-                  <span class="read-more success-text">
-                    Đọc tiếp <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                  </span>
+                  <p class="post-excerpt">{{ post.description | default: post.excerpt | strip_html | truncatewords: 25 }}</p>
+                  <span class="read-more">Đọc tiếp <i class="fas fa-arrow-right"></i></span>
                 </div>
               </a>
             </article>
@@ -650,11 +635,8 @@
           <div class="slider-dots" role="tablist" aria-label="Điều hướng bài viết"></div>
         </div>
 
-        <div class="blog-cta text-center">
-          <a href="/blog/" class="btn btn-secondary">
-            <i class="fas fa-newspaper" aria-hidden="true"></i>
-            Xem tất cả bài viết
-          </a>
+        <div class="text-center mt-lg">
+          <a href="/blog/" class="btn btn-secondary">Xem tất cả bài viết</a>
         </div>
       </div>
     </section>
