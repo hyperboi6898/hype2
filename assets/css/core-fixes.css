@@ -1,0 +1,50 @@
+/* core-fixes.css */
+:root {
+  --header-height: 72px;   /* hoặc query JS để đo thực */
+}
+
+body { padding-top: var(--header-height); }
+html { scroll-padding-top: calc(var(--header-height) + 20px); }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #001b1b; 
+    --surface: #002121;
+    --text-primary: #e2e8f0; 
+    --text-secondary: #b5bcc9;
+    --border: #0d3535;
+  }
+}
+
+.section-grid {
+  display: grid; 
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.navbar-nav { 
+  transform: translateY(-120%); 
+  transition: transform .4s ease; 
+}
+.navbar-nav.active { 
+  transform: translateY(0); 
+}
+body.menu-open { 
+  overflow: hidden; 
+}
+
+/* Responsive section spacing */
+@media (max-width: 768px) {
+  .section-space {
+    padding: 3rem 0; /* Half the padding for mobile */
+  }
+  .section-space-sm {
+    padding: 1.5rem 0; /* Half the padding for mobile */
+  }
+}
+
+/* Fix for hero section height */
+.hero {
+  padding: 6rem 0;
+  min-height: auto; /* Override min-height: 100vh if present */
+}

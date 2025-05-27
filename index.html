@@ -322,6 +322,9 @@ title: Trang chủ
   <!-- Non-critical CSS - Load asynchronously -->
   <link rel="preload" href="/assets/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="/assets/css/main.css"></noscript>
+  
+  <!-- Core Fixes CSS -->
+  <link rel="stylesheet" href="/assets/css/core-fixes.css?v=1.0">
 
   <!-- Font loading optimization -->
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -362,53 +365,13 @@ title: Trang chủ
   <!-- Skip Navigation -->
   <a href="#main-content" class="skip-nav">Bỏ qua điều hướng</a>
 
-  <!-- Header -->
-  <header class="site-header" role="banner">
-    <div class="container">
-      <nav class="navbar" role="navigation" aria-label="Điều hướng chính">
-        <div class="navbar-brand">
-          <a href="/" class="logo" aria-label="Hyperliquid Vietnam - Trang chủ">
-            <span class="hyper" aria-hidden="true">Hyper</span><span class="liquid" aria-hidden="true">liquid</span>
-            <span class="vn" aria-hidden="true">Vietnam</span>
-          </a>
-        </div>
-
-        <ul class="navbar-nav" id="navbar-menu" role="menubar">
-          <li role="none"><a href="#home" role="menuitem">Trang chủ</a></li>
-          <li role="none"><a href="#about" role="menuitem">Giới thiệu</a></li>
-          <li role="none"><a href="#features" role="menuitem">Tính năng</a></li>
-          <li role="none"><a href="/blog/" role="menuitem">Blog</a></li>
-          <li role="none"><a href="#contact" role="menuitem">Liên hệ</a></li>
-          <li role="none">
-            <a href="https://app.hyperliquid.xyz/join/VN84" 
-               class="btn btn-primary" 
-               target="_blank" 
-               rel="noopener noreferrer"
-               role="menuitem"
-               aria-label="Bắt đầu giao dịch trên Hyperliquid (mở tab mới)">
-              Bắt Đầu Giao Dịch
-            </a>
-          </li>
-        </ul>
-
-        <button class="mobile-menu-toggle" 
-                aria-label="Mở menu điều hướng" 
-                aria-expanded="false" 
-                aria-controls="navbar-menu"
-                type="button">
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-          <span class="hamburger-line"></span>
-        </button>
-      </nav>
-    </div>
-  </header>
+  {% include header.html %}
 
   <main id="main-content">
     <!-- Hero Section -->
     <section id="home" class="hero" aria-labelledby="hero-title">
       <div class="container">
-        <div class="hero-content">
+        <div class="hero-content section-grid">
           <div class="hero-text animate-fadeInUp">
             <h1 id="hero-title">Chào mừng đến với Hyperliquid Vietnam</h1>
             <p class="hero-description">
@@ -431,12 +394,16 @@ title: Trang chủ
             </div>
           </div>
           <div class="hero-visual animate-fadeInUp">
-            <img src="images/hero-image.png" 
-                 alt="Giao diện trading Hyperliquid hiển thị biểu đồ giá và sổ lệnh thời gian thực" 
-                 width="600" 
-                 height="400"
-                 loading="eager"
-                 decoding="async">
+            <picture>
+              <source srcset="images/hero-image.webp" type="image/webp">
+              <img src="images/hero-image.png" 
+                   alt="Giao diện trading Hyperliquid hiển thị biểu đồ giá và sổ lệnh thời gian thực" 
+                   width="600" 
+                   height="400"
+                   loading="eager"
+                   decoding="async"
+                   fetchpriority="high">
+            </picture>
           </div>
         </div>
       </div>
@@ -459,7 +426,7 @@ title: Trang chủ
           </p>
         </div>
 
-        <div class="features-grid">
+        <div class="section-grid">
           <article class="feature-card">
             <div class="feature-icon" aria-hidden="true">
               <i class="fas fa-exchange-alt"></i>
@@ -807,6 +774,14 @@ title: Trang chủ
       if (!container || !prevBtn || !nextBtn) return;
       
       const posts = container.querySelectorAll('.blog-post-card');
+      
+      // Check if we have too few posts to make a slider
+      if (posts.length <= 1) {
+        prevBtn.style.display = nextBtn.style.display = "none";
+        dotsContainer.style.display = "none";
+        return;  // Don't initialize slider
+      }
+      
       let currentSlide = 0;
       const maxSlides = Math.max(0, posts.length - 1);
 
